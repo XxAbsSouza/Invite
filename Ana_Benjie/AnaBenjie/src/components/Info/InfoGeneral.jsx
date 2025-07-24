@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactMarkdown from "react-markdown";
 import { assets, infosGeneralesData } from "../../assets/assets";
+import MapRoute from './MapRoute';
 import "./InfoGeneral.css";
 
 
@@ -33,6 +34,8 @@ const InfoGeneral = () => {
       },
     ];
 
+    const origem = encodeURIComponent(userInput);
+
   return (
     <div className="flex flex-col items-center my-16 md:pt-10 space-y-4">
       <p className="p-5 text-lg md:text-xl lg:text-4xl text-center">
@@ -64,20 +67,34 @@ const InfoGeneral = () => {
               index % 2 === 0 ? "items-start" : "items-end"
             } mx-2 py-4 w-[90vw] md:w-[80vw] lg:w-[70vw]`}
           >
-            <div className="flex flex-col items-start text-justify max-w-[70vw] md:max-w-full ">
+            <div className="flex flex-col text-justify max-w-[70vw] md:max-w-full py-2 my-4">
               <img
                 src={info.title}
                 alt={info.alt}
-                className="w-[16vw] md:w-[11vw] lg:w-[8vw]"
+                className="w-[25vw] md:w-[11vw] lg:w-[8vw] mb-4"
               />
               <p>
                 <ReactMarkdown>{info.description}</ReactMarkdown>
               </p>
-              {/* {info.hasMap && (
 
-              )} */}
+              {info.hasMap && (
+                <div className="mt-4 w-full">
+                  <div className="w-full h-full">
+                    <MapRoute />
+                  </div>
+                  <div className="mt-4 flex flex-col w-fit">
+                    <p>Digite aqui o endereço de origem para traçar uma rota</p>
+                    <input
+                      type="text"
+                      placeholder={info.placeholder}
+                      className="input btn-style btn-dash input-bordered mt-2 w-full"
+                    />
+                  </div>
+                </div>
+              )}
+
               {info.hasBtn && (
-                <button className="btn btn-dash transition-colors duration-300 mt-4">
+                <button className="btn btn-style btn-dash transition-colors duration-300 mt-4 md:max-w-[13vw]">
                   {info.buttonText}
                 </button>
               )}

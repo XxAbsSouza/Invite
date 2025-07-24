@@ -36,7 +36,7 @@ export const infosGeneralesData = [
       "Campo de los abuelos de Ana, **Campo de los olivos** (esta linea es de ejemplo jajaja)",
     subTitleField: "Digite aqui o endereço de origem para traçar uma rota",
     hasBtn: true,
-    placeHoder: "Local de Partida",
+    placeholder: "Local de Partida",
     buttonText: "Traçar rota",
     hasMap: true,
     mapEmbedUrl:

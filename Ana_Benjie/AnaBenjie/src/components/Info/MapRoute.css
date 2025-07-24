@@ -1,0 +1,12 @@
+.map-marker {
+    margin-top: -2.3rem;
+    background-color: #b2af80;
+    padding: 0.1rem 0.5rem;
+    border-radius: 1rem;
+    color: white;
+}
+
+.map-container {
+  border-radius: 0.5rem;
+  overflow: hidden; /* importante pra fazer o conteúdo do mapa respeitar o border-radius */
+}
