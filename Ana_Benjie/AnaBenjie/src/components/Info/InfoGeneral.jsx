@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactMarkdown from "react-markdown";
 import { assets, infosGeneralesData } from "../../assets/assets";
-import MapRoute from './MapRoute';
+import MapRoute from './MapRoute.jsx';
 import "./InfoGeneral.css";
 
 

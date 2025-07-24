@@ -17,7 +17,6 @@ const MapRoute = () => {
         `https://www.google.com/maps?q=${position.lat},${position.lng}`,
         "_blank"
       );
-
     }
   };
 
