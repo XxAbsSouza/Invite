@@ -33,8 +33,7 @@ const InfoGeneral = () => {
         classes: "w-[12vw] md:w-[7vw] lg:w-[5vw]",
       },
     ];
-
-    const origem = encodeURIComponent(userInput);
+    
 
   return (
     <div className="flex flex-col items-center my-16 md:pt-10 space-y-4">
