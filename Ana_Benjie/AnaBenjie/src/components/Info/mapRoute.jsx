@@ -5,7 +5,7 @@ import "./MapRoute.css";
 const MapRoute = () => {
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
-    // googleMapsApiKey: "AIzaSyAoSIuwpjV1nxxUvVUWp99Zqz_VRaIeUBM",
+    googleMapsApiKey: "AIzaSyAoSIuwpjV1nxxUvVUWp99Zqz_VRaIeUBM",
   });
 
   const position = { lat: -23.528694, lng: -46.889704 };
