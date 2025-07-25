@@ -1,8 +1,11 @@
 import React from 'react'
 import ReactMarkdown from "react-markdown";
 import { assets, infosGeneralesData } from "../../assets/assets";
+
 import MapRoute from './MapRoute.jsx';
 import "./InfoGeneral.css";
+
+import { useNavigate } from "react-router-dom";
 
 
 const InfoGeneral = () => {
@@ -33,7 +36,7 @@ const InfoGeneral = () => {
         classes: "w-[12vw] md:w-[7vw] lg:w-[5vw]",
       },
     ];
-    
+    const navigate = useNavigate();
 
   return (
     <div className="flex flex-col items-center my-16 md:pt-10 space-y-4">
@@ -93,7 +96,13 @@ const InfoGeneral = () => {
               )}
 
               {info.hasBtn && (
-                <button className="btn btn-style btn-dash transition-colors duration-300 mt-4 md:max-w-[13vw]">
+                // <button className="btn btn-style btn-dash transition-colors duration-300 mt-4 md:max-w-[13vw]">
+                //   {info.buttonText}
+                // </button>
+                <button
+                  className="btn btn-style btn-dash transition-colors duration-300 mt-4 md:max-w-[13vw]"
+                  onClick={() => navigate("/dicas")}
+                >
                   {info.buttonText}
                 </button>
               )}
