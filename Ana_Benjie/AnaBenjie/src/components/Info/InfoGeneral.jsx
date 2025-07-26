@@ -1,42 +1,47 @@
-import React from 'react'
+import React, { useState } from "react";
+
 import ReactMarkdown from "react-markdown";
 import { assets, infosGeneralesData } from "../../assets/assets";
 
-import MapRoute from './MapRoute.jsx';
+import MapRoute from "./MapRoute.jsx";
 import "./InfoGeneral.css";
 
 import { useNavigate } from "react-router-dom";
 
-
 const InfoGeneral = () => {
-    const dias = [
-      {
-        src: assets.dezoito,
-        alt: "Dia Dezoito",
-        classes: "w-[12vw] md:w-[7vw] lg:w-[5vw]",
-      },
-      {
-        src: assets.dezenove,
-        alt: "Dia Dezenove",
-        classes: "w-[15vw] md:w-[9vw] lg:w-[7vw]",
-      },
-      {
-        src: assets.dezenove,
-        alt: "Dia Vinte, O Grande Dia",
-        classes: "w-[20vw] md:w-[13vw] lg:w-[10vw]",
-      },
-      {
-        src: assets.vinteum,
-        alt: "Dia vinte e um",
-        classes: "w-[15vw] md:w-[9vw] lg:w-[7vw]",
-      },
-      {
-        src: assets.vintedois,
-        alt: "Dia vinte e Dois",
-        classes: "w-[12vw] md:w-[7vw] lg:w-[5vw]",
-      },
-    ];
-    const navigate = useNavigate();
+  const dias = [
+    {
+      src: assets.dezoito,
+      alt: "Dia Dezoito",
+      classes: "w-[12vw] md:w-[7vw] lg:w-[5vw]",
+    },
+    {
+      src: assets.dezenove,
+      alt: "Dia Dezenove",
+      classes: "w-[15vw] md:w-[9vw] lg:w-[7vw]",
+    },
+    {
+      src: assets.dezenove,
+      alt: "Dia Vinte, O Grande Dia",
+      classes: "w-[20vw] md:w-[13vw] lg:w-[10vw]",
+    },
+    {
+      src: assets.vinteum,
+      alt: "Dia vinte e um",
+      classes: "w-[15vw] md:w-[9vw] lg:w-[7vw]",
+    },
+    {
+      src: assets.vintedois,
+      alt: "Dia vinte e Dois",
+      classes: "w-[12vw] md:w-[7vw] lg:w-[5vw]",
+    },
+  ];
+  const [origem, setOrigem] = useState("");
+  function handleOrigemChange(e) {
+    setOrigem(e.target.value);
+  }
+
+  const navigate = useNavigate();
 
   return (
     <div className="flex flex-col items-center my-16 md:pt-10 space-y-4">
@@ -75,30 +80,20 @@ const InfoGeneral = () => {
                 alt={info.alt}
                 className="w-[25vw] md:w-[11vw] lg:w-[8vw] mb-4"
               />
-              <p>
+              <div>
                 <ReactMarkdown>{info.description}</ReactMarkdown>
-              </p>
+              </div>
 
               {info.hasMap && (
-                <div className="mt-4 w-full">
-                  <div className="w-full h-full">
-                    <MapRoute />
-                  </div>
-                  <div className="mt-4 flex flex-col w-fit">
-                    <p>Digite aqui o endereço de origem para traçar uma rota</p>
-                    <input
-                      type="text"
-                      placeholder={info.placeholder}
-                      className="input btn-style btn-dash input-bordered mt-2 w-full"
-                    />
+                <div className="mt-4 w-fit">
+                    <p className="text-base">Digite aqui o endereço de origem para traçar uma rota</p>
+                  <div className=" h-full">
+                    <MapRoute showMap={false} />
                   </div>
                 </div>
               )}
 
               {info.hasBtn && (
-                // <button className="btn btn-style btn-dash transition-colors duration-300 mt-4 md:max-w-[13vw]">
-                //   {info.buttonText}
-                // </button>
                 <button
                   className="btn btn-style btn-dash transition-colors duration-300 mt-4 md:max-w-[13vw]"
                   onClick={() => navigate("/dicas")}
@@ -112,6 +107,6 @@ const InfoGeneral = () => {
       </div>
     </div>
   );
-}
+};
 
-export default InfoGeneral
+export default InfoGeneral;
