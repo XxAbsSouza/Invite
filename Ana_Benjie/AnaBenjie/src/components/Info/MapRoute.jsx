@@ -8,7 +8,7 @@ import {
 } from "@react-google-maps/api";
 
 const MapRoute = ({ showMap = true }) => {
-  const destination = { lat: -23.53560, lng: -46.87934};
+  const destination = { lat: -23.34901, lng: -48.19917};
   const inputRef = useRef(null);
   const [routeUrl, setRouteUrl] = useState("");
   const [error, setError] = useState(false);
