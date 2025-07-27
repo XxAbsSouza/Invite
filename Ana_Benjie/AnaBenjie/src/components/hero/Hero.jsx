@@ -9,7 +9,7 @@ export const Hero = () => {
       h-[100vh] md:h-[140vh] lg:h-[150vh] xl:h-[230vh] 
       bg-contain bg-no-repeat 
       flex justify-center
-      hero_img"
+      hero_img w-full"
       id="Hero"
     >
       <div className="flex flex-col items-center mt-16 md:pt-10 space-y-4 ">

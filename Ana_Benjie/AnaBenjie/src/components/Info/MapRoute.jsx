@@ -7,7 +7,7 @@ import {
   StandaloneSearchBox,
 } from "@react-google-maps/api";
 
-const MapRoute = ({ showMap = true }) => {
+const MapRoute = () => {
   const destination = { lat: -23.34901, lng: -48.19917};
   const inputRef = useRef(null);
   const [routeUrl, setRouteUrl] = useState("");
@@ -52,7 +52,7 @@ const MapRoute = ({ showMap = true }) => {
 
 
   return (
-    <div className="map-container">
+    <div className="">
       {/* Sempre renderiza o input */}
       {isLoaded && (
         <>
@@ -76,8 +76,8 @@ const MapRoute = ({ showMap = true }) => {
           >
             <input
               type="text"
-              placeholder="Digite um local..."
-              className={`input btn-style btn-dash input-bordered mt-2 w-full ${
+              placeholder="Digite o ponto de partida"
+              className={`input btn-style btn-outline input-bordered mt-2 w-full ${
                 error ? "border-red-500" : ""
               }`}
             />
@@ -88,24 +88,26 @@ const MapRoute = ({ showMap = true }) => {
             </p>
           )}
 
-          <button
-            className="btn btn-style btn-dash transition-colors duration-300 mt-4 w-full md:max-w-[13vw]"
-            onClick={() => {
-              if (routeUrl) {
-                window.open(routeUrl, "_blank");
-              } else {
-                setError(true);
-              }
-            }}
-          >
-            Traçar rota
-          </button>
+          <div className="flex justify-end">
+            <button
+              className="btn btn-style btn-outline transition-colors duration-300 mt-2 w-full md:w-[15vw]"
+              onClick={() => {
+                if (routeUrl) {
+                  window.open(routeUrl, "_blank");
+                } else {
+                  setError(true);
+                }
+              }}
+            >
+              Traçar rota
+            </button>
+          </div>
         </>
       )}
 
       {/* Renderiza o mapa só se showMap for true */}
-      {isLoaded && showMap && (
-        <div onClick={handleMapClick}>
+      {isLoaded && (
+        <div onClick={handleMapClick} className="my-4 map-container">
           <GoogleMap
             mapContainerStyle={{
               width: "100%",

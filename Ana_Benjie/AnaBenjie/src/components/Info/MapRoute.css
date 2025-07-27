@@ -7,6 +7,7 @@
 }
 
 .map-container {
-  border-radius: 0.5rem;
+  border-radius: 1rem;
   overflow: hidden; /* importante pra fazer o conteúdo do mapa respeitar o border-radius */
+  height: 50vh;
 }

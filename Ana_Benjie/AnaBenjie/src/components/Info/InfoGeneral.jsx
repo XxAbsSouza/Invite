@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import ReactMarkdown from "react-markdown";
 import { assets, infosGeneralesData } from "../../assets/assets";
 
-import MapRoute from "./MapRoute.jsx";
 import "./InfoGeneral.css";
 
 import { useNavigate } from "react-router-dom";
@@ -84,19 +83,10 @@ const InfoGeneral = () => {
                 <ReactMarkdown>{info.description}</ReactMarkdown>
               </div>
 
-              {info.hasMap && (
-                <div className="mt-4 w-fit">
-                    <p className="text-base">Digite aqui o endereço de origem para traçar uma rota</p>
-                  <div className=" h-full">
-                    <MapRoute showMap={false} />
-                  </div>
-                </div>
-              )}
-
               {info.hasBtn && (
                 <button
-                  className="btn btn-style btn-dash transition-colors duration-300 mt-4 md:max-w-[13vw]"
-                  onClick={() => navigate("/dicas")}
+                  className="btn btn-style btn-outline transition-colors duration-300 mt-4 md:max-w-[13vw]"
+                  onClick={() => navigate(info.navigateTo)}
                 >
                   {info.buttonText}
                 </button>

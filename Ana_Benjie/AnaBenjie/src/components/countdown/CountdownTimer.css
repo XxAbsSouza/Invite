@@ -1,0 +1,5 @@
+.flip-clock {
+    --fcc-background: #B0BCE5; /* background of digit card */
+    --fcc-separator-color: #B0BCE5;
+    color: #7c849e;
+}
