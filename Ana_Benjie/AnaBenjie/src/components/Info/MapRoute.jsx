@@ -107,7 +107,7 @@ const MapRoute = () => {
 
       {/* Renderiza o mapa só se showMap for true */}
       {isLoaded && (
-        <div onClick={handleMapClick} className="my-4 map-container">
+        <div onClick={handleMapClick} className="mt-4 md:mt-4 pt-5 map-container">
           <GoogleMap
             mapContainerStyle={{
               width: "100%",
