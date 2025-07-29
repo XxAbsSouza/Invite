@@ -8,7 +8,7 @@ import { fotosCarrossel } from "../../assets/assets";
 
 const Gallery = () => {
   return (
-    <div className="w-full max-w-4xl my-10">
+    <div className="w-full max-w-4xl my-8">
       <Swiper
         effect="coverflow"
         autoplay={{
@@ -36,7 +36,7 @@ const Gallery = () => {
               <img
                 src={foto.img}
                 alt="Ana e Benjie"
-                className="w-full h-[50vh] md:h-auto rounded-xl"
+                className="w-full h-[45vh] md:h-auto rounded-xl"
               />
             </SwiperSlide>
           ))}
