@@ -13,15 +13,15 @@ const ListRegalos = () => {
       <img
         src={assets.flores}
         alt="decoracao"
-        className="absolute top-0 left-0 w-[40vw] md:w-[20vw] lg:w-[15vw] rotate-180  -translate-x-1/6 z-10 -translate-y-1/5"
+        className="absolute top-0 left-0 w-[40vw] md:w-[20vw] lg:w-[13vw] rotate-180  -translate-x-1/6 z-10 -translate-y-1/5"
       />
 
       {citacoesPagina2.map((citacao, index) => (
         <div
           key={index}
-          className="bg p-5 flex flex-col items-center text-center"
+          className="bg p-5 flex flex-col items-center text-justify md:text-center"
         >
-          <div className="prose break-words whitespace-normal max-w-[80vw] md:max-w-[60vw] py-10">
+          <div className="prose break-words whitespace-normal max-w-[85vw] md:max-w-[60vw] py-15 my-5">
             <ReactMarkdown rehypePlugins={[rehypeRaw]}>
               {citacao.texto}
             </ReactMarkdown>
@@ -32,7 +32,7 @@ const ListRegalos = () => {
       <img
         src={assets.flores_ponta_cabeca}
         alt="decoracao"
-        className="absolute bottom-0 right-0 w-[37vw] md:w-[20vw] lg:w-[15vw] rotate-180  translate-x-1/6 z-10 translate-y-2/6"
+        className="absolute bottom-0 right-0 w-[39vw] md:w-[20vw] lg:w-[13vw] rotate-180  translate-x-1/6 z-10 translate-y-2/6"
       />
     </div>
   );
