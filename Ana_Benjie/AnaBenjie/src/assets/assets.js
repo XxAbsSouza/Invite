@@ -13,6 +13,20 @@ import flores from './flores.svg'
 import hora from './hora.svg'
 import lugar from './lugar.svg'
 import novembroRosa from './novembro_cor_rosa.svg'
+import foto0 from './foto0.jfif'
+import foto1 from "./foto1.jpg";
+import foto2 from "./foto2.jpg";
+import foto3 from "./foto3.jpg";
+import foto4 from "./foto4.jpg";
+import foto5 from "./foto5.jpg";
+import foto6 from "./foto6.jpg";
+import foto7 from "./foto7.jpg";
+import foto8 from "./foto8.jpg";
+import foto9 from "./foto9.jpg";
+import foto10 from "./foto10.jfif";
+import foto11 from "./foto11.jfif";
+import foto12 from "./foto12.jfif";
+import foto13 from "./foto13.jfif";
 
 export const assets = {
   heroIMG,
@@ -30,6 +44,7 @@ export const assets = {
 
 export const infosGeneralesData = [
   {
+    pagina: 1,
     alt: "Lugar",
     title: lugar,
     description:
@@ -44,12 +59,14 @@ export const infosGeneralesData = [
     navigateTo: "/comochegar",
   },
   {
+    pagina: 1,
     alt: "Hora",
     title: hora,
     description:
       "Te esperamos a las **3:00 p.m.** y agradecemos tu puntualidad.",
   },
   {
+    pagina: 1,
     alt: "Vestimenta",
     title: hora,
     description:
@@ -58,11 +75,22 @@ export const infosGeneralesData = [
     buttonText: "Ver Tips",
     navigateTo: "/dicas",
   },
+  {
+    pagina: 2,
+    alt: "A confirmação é importante",
+    title: nos_casamos_hero,
+    description:
+      "asegúranos tu presencia confirmando en el siguiente botón",
+    hasBtn: true,
+    buttonText: "Confirme Aqui",
+    navigateTo: "/formsConfirmation",
+  },
 ];
 
 // citacoes.js
 export const citacoes = [
   {
+    pagina: 1,
     texto: `Cuando dos almas fueron creadas para caminar juntas,
 Dios encuentra la manera de unirlas, sin importar el
 tiempo ni la distancia, ni el idioma.<br />
@@ -77,5 +105,54 @@ Eres importante en nuestras vidas, y por ello, nos encantaría
 que nos acompañes en nuestra ceremonia y
 seas parte de este capítulo que se abre ante nosotros.`,
   },
+  {
+    pagina: 2,
+    texto: `Sus buenos deseos y presencia son un gran regalo para nosotros, pero en caso de hacernos un obsequio, este puede ser en efectivo.`,
+  },
 ];
 
+
+export const fotosCarrossel = [
+  {
+    img: foto0
+  },
+  {
+    img: foto1
+  },
+  {
+    img: foto2
+  },
+  {
+    img: foto3
+  },
+  {
+    img: foto4
+  },
+  {
+    img: foto5
+  },
+  {
+    img: foto6
+  },
+  {
+    img: foto7
+  },
+  {
+    img: foto8
+  },
+  {
+    img: foto9
+  },
+  {
+    img: foto10
+  },
+  {
+    img: foto11
+  },
+  {
+    img: foto12
+  },
+  {
+    img: foto13
+  },
+]

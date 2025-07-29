@@ -19,6 +19,7 @@
     "react-markdown": "^10.1.0",
     "react-router-dom": "^7.7.1",
     "rehype-raw": "^7.0.0",
+    "swiper": "^11.2.10",
     "tailwindcss": "^4.1.11"
   },
   "devDependencies": {
