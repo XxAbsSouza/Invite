@@ -3,3 +3,29 @@
     --fcc-separator-color: #B0BCE5;
     color: #7c849e;
 }
+
+@media (max-width: 628px) {
+    .flip-clock{
+        --fcc-spacing: 5px; /* space between unit times and separators */
+        --fcc-digit-block-width: 35px; /* width of digit card */
+        --fcc-digit-block-height: 55px; /* height of digit card, highly recommend in even number */
+        --fcc-digit-block-spacing: 3px; /* space between blocks in each unit of time */
+        --fcc-digit-font-size: clamp(20px, 32px, 40px);
+        --fcc-divider-height: 1.4px; /* height of divider */
+        --fcc-separator-size: clamp(3px, 5px, 7px); /* size of colon */
+    }
+}
+@media (max-width: 380px) {
+    .flip-clock{
+        --fcc-digit-block-width: 30px; /* width of digit card */
+        --fcc-digit-block-height:55px; /* height of digit card, highly recommend in even number */
+        --fcc-digit-font-size: clamp(15px, 30px, 30px);
+        --fcc-separator-size: clamp(3px, 4px, 7px); /* size of colon */
+    }
+}
+@media (max-width: 320px) {
+    .flip-clock{
+        --fcc-digit-block-width: 26px; /* width of digit card */
+
+    }
+}
