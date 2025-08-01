@@ -11,6 +11,10 @@ import Gallery from "./components/gallery/Gallery";
 import Confirmation from "./components/confirmation/Confirmation";
 import ListRegalos from "./components/listaRegalos/ListRegalos";
 import Footer from "./components/footer/Footer";
+import FormConfirm from "./pages/FormConfirm"
+import SearchGuest from "./components/confirmation/SearchGuest";
+import MessageSorry from "./components/confirmation/messageSorry";
+import ResponseReport from "./pages/ResponseReport";
 
 function App() {
   return (
@@ -28,13 +32,16 @@ function App() {
               <Confirmation />
               <ListRegalos />
               <Footer />
-              
             </div>
           }
         />
 
         <Route path="/dicas" element={<Dicas />} />
         <Route path="/comoChegar" element={<ComoChegar />} />
+        <Route path="/formsConfirmation" element={<FormConfirm />} />
+        <Route path="/searchGuest" element={<SearchGuest />} />
+        <Route path="/messageSorry" element={<MessageSorry />} />
+        <Route path="/responseReport" element={<ResponseReport />} />
       </Routes>
     </Router>
   );

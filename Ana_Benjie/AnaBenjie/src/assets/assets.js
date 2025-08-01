@@ -79,11 +79,10 @@ export const infosGeneralesData = [
     pagina: 2,
     alt: "A confirmação é importante",
     title: nos_casamos_hero,
-    description:
-      "asegúranos tu presencia confirmando en el siguiente botón",
+    description: "asegúranos tu presencia confirmando en el siguiente botón",
     hasBtn: true,
     buttonText: "Confirme Aqui",
-    navigateTo: "/formsConfirmation",
+    navigateTo: "/searchGuest",
   },
 ];
 

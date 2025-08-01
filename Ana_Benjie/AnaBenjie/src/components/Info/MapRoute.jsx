@@ -80,6 +80,7 @@ const MapRoute = () => {
               className={`input btn-style btn-outline input-bordered mt-2 w-full ${
                 error ? "border-red-500" : ""
               }`}
+              required
             />
           </StandaloneSearchBox>
           {error && (
@@ -107,7 +108,10 @@ const MapRoute = () => {
 
       {/* Renderiza o mapa só se showMap for true */}
       {isLoaded && (
-        <div onClick={handleMapClick} className="mt-4 md:mt-4 pt-5 map-container">
+        <div
+          onClick={handleMapClick}
+          className="mt-4 md:mt-4 pt-5 map-container"
+        >
           <GoogleMap
             mapContainerStyle={{
               width: "100%",
