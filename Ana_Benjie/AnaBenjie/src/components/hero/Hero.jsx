@@ -6,7 +6,7 @@ export const Hero = () => {
   return (
     <div
       className="mb-4 
-      h-[95vh] md:h-[160vh] lg:h-[200vh] xl:h-[230vh] 
+      h-[95vh] md:h-[160vh] lg:h-[200vh] xl:h-[245vh] 
       bg-contain bg-no-repeat 
       flex justify-center
       hero_img w-full"

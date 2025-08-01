@@ -1,0 +1,21 @@
+.music-player {
+  position: fixed;
+  top: 95%;
+  right: -2px; /* valor padrão quando não estiver expandido */
+  transform: translateY(-50%);
+  background: #b2af8093;
+  border-radius: 5px 0 0 5px;
+  box-shadow: 0 0 7px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  transition: right 0.3s;
+  padding: 5px;
+  cursor: pointer;
+  z-index: 9999;
+}
+
+/* quando estiver expandido */
+.music-player.expanded {
+    right: 0;
+    background:  #b2af80;
+}
