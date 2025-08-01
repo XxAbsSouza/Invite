@@ -50,15 +50,15 @@ export default function MusicPlayer() {
         className={`music-player ${expanded ? "expanded" : ""}`}
       >
         <div onClick={toggleExpand} style={{ padding: "0 6px 0 2px" }}>
-          <FaMusic color="white" size={15} />
+          <FaMusic color="white" size={18} />
         </div>
 
         {expanded && (
-          <div onClick={togglePlay} style={{ padding: "0 2px" }}>
+          <div onClick={togglePlay} style={{ padding: "0 2px 0 6px" }}>
             {playing ? (
-              <FaPause color="white" size={15} />
+              <FaPause color="white" size={18} />
             ) : (
-              <FaPlay color="white" size={15} />
+              <FaPlay color="white" size={18} />
             )}
           </div>
         )}
