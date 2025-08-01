@@ -13,7 +13,7 @@ import ListRegalos from "./components/listaRegalos/ListRegalos";
 import Footer from "./components/footer/Footer";
 import FormConfirm from "./pages/FormConfirm"
 import SearchGuest from "./components/confirmation/SearchGuest";
-import MessageSorry from "./components/confirmation/messageSorry";
+import MessageSorry from "./components/confirmation/MessageSorry";
 import ResponseReport from "./pages/ResponseReport";
 
 function App() {
