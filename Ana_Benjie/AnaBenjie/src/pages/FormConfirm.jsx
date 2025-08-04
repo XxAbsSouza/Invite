@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { assets } from "../assets/assets";
 
 const FormConfirm = () => {
   const [formData, setFormData] = useState({
@@ -8,7 +9,7 @@ const FormConfirm = () => {
     quantidade: 0,
     observacao: "",
     confirmacao: "",
-    acompanhantes: [], // array de { nome, tipo }
+    acompanhantes: [],
   });
   const [loading, setLoading] = useState(true);
 
@@ -28,10 +29,9 @@ const FormConfirm = () => {
         });
         const data = await res.json();
 
-        // monta acompanhantes do Notion para array local
         const acompanhantesData = (data.acompanhantes || []).map((ac) => ({
           nome: ac.properties?.Nome?.title?.[0]?.plain_text || "",
-          tipo: ac.properties?.Tipo?.select?.name || "Selecione aqui",
+          tipo: ac.properties?.Tipo?.select?.name || "",
         }));
 
         const confirmacaoAtual =
@@ -63,41 +63,6 @@ const FormConfirm = () => {
 
     fetchGuestData();
   }, []);
-
-  // mudar nome/tipo de um acompanhante específico
-  const handleAcompanhanteChange = (index, field, value) => {
-    setFormData((prev) => {
-      const updated = [...prev.acompanhantes];
-      updated[index] = { ...updated[index], [field]: value };
-      return { ...prev, acompanhantes: updated };
-    });
-  };
-
-  // incrementa quantidade
-  const addAcompanhante = () => {
-    setFormData((prev) => ({
-      ...prev,
-      quantidade: prev.quantidade + 1,
-      acompanhantes: [
-        ...prev.acompanhantes,
-        { nome: "", tipo: "Selecione aqui" },
-      ],
-    }));
-  };
-
-  // diminui quantidade
-  const removeAcompanhante = () => {
-    setFormData((prev) => {
-      if (prev.quantidade <= 0) return prev;
-      const updated = [...prev.acompanhantes];
-      updated.pop();
-      return {
-        ...prev,
-        quantidade: prev.quantidade - 1,
-        acompanhantes: updated,
-      };
-    });
-  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -132,10 +97,26 @@ const FormConfirm = () => {
     }
   };
 
-  if (loading) return <p>Carregando...</p>;
+  if (loading)
+    return (
+      <div className="relative w-full flex flex-col items-center justify-center h-[90vh] bg-Presenca">
+        <img
+          src={assets.flores}
+          alt="decoração esquerda"
+          className="absolute top-0 left-0 z-10 w-[25vw] md:w-[15vw] lg:w-[8vw] -translate-x-1/6 -translate-y-1/5 rotate-180"
+        />
+        <img
+          src={assets.flores}
+          alt="decoração direita"
+          className="absolute top-0 right-0 z-10 w-[25vw] md:w-[15vw] lg:w-[8vw] translate-x-1/6 -translate-y-1/5 rotate-[270deg]"
+        />
+        <div className="loading loading-infinity loading-xl text-[#614183]"></div>
+      </div>
+    );
+
 
   return (
-    <div className="w-[95vw] h-screen flex flex-col items-center justify-center ">
+    <div className="w-[95vw] h-screen flex flex-col items-center justify-center">
       <form
         onSubmit={handleSubmit}
         style={{
@@ -201,47 +182,16 @@ const FormConfirm = () => {
           />
         </div>
 
-        <div className="flex flex-col w-full mauto gap-2">
-          <label>Quantidade de acompanhantes</label>
-          <div className="flex gap-2 items-center">
-            <button
-              type="button"
-              onClick={removeAcompanhante}
-              disabled={formData.quantidade <= 0}
-            >
-              -
-            </button>
-            <span>{formData.quantidade}</span>
-            <button type="button" onClick={addAcompanhante}>
-              +
-            </button>
+        {formData.acompanhantes.length > 0 && (
+          <div className="flex flex-col w-full mauto gap-2">
+            <label>Acompanhantes</label>
+            <ul className="list-disc list-inside">
+              {formData.acompanhantes.map((ac, idx) => (
+                <li key={idx}>{ac.nome}</li>
+              ))}
+            </ul>
           </div>
-        </div>
-
-        {formData.acompanhantes.map((ac, idx) => (
-          <div key={idx} className="flex flex-col w-full mauto gap-2">
-            <label>Acompanhante {idx + 1}</label>
-            <input
-              placeholder="Nome"
-              value={ac.nome}
-              onChange={(e) =>
-                handleAcompanhanteChange(idx, "nome", e.target.value)
-              }
-              required
-            />
-            <select
-              value={ac.tipo}
-              onChange={(e) =>
-                handleAcompanhanteChange(idx, "tipo", e.target.value)
-              }
-              required
-            >
-              <option>Selecione aqui</option>
-              <option>Adulto</option>
-              <option>Criança</option>
-            </select>
-          </div>
-        ))}
+        )}
 
         <div className="flex flex-col w-full mauto gap-4">
           <label htmlFor="obs">Observação</label>

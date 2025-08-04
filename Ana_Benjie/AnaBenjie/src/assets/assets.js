@@ -13,6 +13,9 @@ import flores from './flores.svg'
 import hora from './hora.svg'
 import lugar from './lugar.svg'
 import novembroRosa from './novembro_cor_rosa.svg'
+import nosVemos from './nosVemosPronto.svg'
+import tuConfirmacion from './confirmacion-important.svg'
+
 import foto0 from './foto0.jfif'
 import foto1 from "./foto1.jpg";
 import foto2 from "./foto2.jpg";
@@ -40,6 +43,8 @@ export const assets = {
   flores_ponta_cabeca,
   flores,
   novembroRosa,
+  nosVemos,
+  tuConfirmacion,
 };
 
 export const infosGeneralesData = [
@@ -78,7 +83,7 @@ export const infosGeneralesData = [
   {
     pagina: 2,
     alt: "A confirmação é importante",
-    title: nos_casamos_hero,
+    title: tuConfirmacion,
     description: "asegúranos tu presencia confirmando en el siguiente botón",
     hasBtn: true,
     buttonText: "Confirme Aqui",

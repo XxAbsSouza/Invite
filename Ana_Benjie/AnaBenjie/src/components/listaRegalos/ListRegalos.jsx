@@ -9,7 +9,7 @@ const ListRegalos = () => {
   const citacoesPagina2 = citacoes.filter((c) => c.pagina === 2);
 
   return (
-    <div className="relative overflow-visible w-full text-white my-5">
+    <div className="relative overflow-visible w-full text-white my-8">
       <img
         src={assets.flores}
         alt="decoracao"

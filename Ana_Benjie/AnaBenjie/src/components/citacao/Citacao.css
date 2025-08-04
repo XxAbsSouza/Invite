@@ -1,3 +1,9 @@
 .bg {
     background-color: #b2af80ca;
 }
+.bg-como_chegar {
+  background: linear-gradient(to bottom, #ffd4d259, rgba(255, 255, 255, 0));
+}
+.bg-Presenca {
+  background: linear-gradient(to bottom, #baabca5c, rgba(255, 255, 255, 0));
+}

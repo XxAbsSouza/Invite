@@ -12,9 +12,9 @@ const Confirmation = () => {
   return (
     <div className="my-10 flex flex-col items-center justify-center gap-6 w-[90vw] text-center">
       <img
-        src={assets.nossos_nomes_hero}
+        src={assets.tuConfirmacion}
         alt="A confirmação é importante"
-        className="w-[60vw] md:w-[10vw] lg:w-[20vw]"
+        className="w-[100vw] md:w-[70vw] lg:w-[40vw]"
       />
 
       {infosPagina2.map((info, index) => (

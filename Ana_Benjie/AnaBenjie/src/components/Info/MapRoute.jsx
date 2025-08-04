@@ -77,7 +77,7 @@ const MapRoute = () => {
             <input
               type="text"
               placeholder="Digite o ponto de partida"
-              className={`input btn-style btn-outline input-bordered mt-2 w-full ${
+              className={` p-2 border rounded-lg text-base mt-2 w-full ${
                 error ? "border-red-500" : ""
               }`}
               required

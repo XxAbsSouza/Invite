@@ -1,11 +1,16 @@
 import React from 'react'
+import { assets } from '../../assets/assets'
 
 const Footer = () => {
   return (
-    <div>
-        <h1 className='text-4xl min-h-[30vh] flex flex-col items-center justify-center'>Nos vemos em breve!</h1>
+    <div className='p-10'>
+      <img
+        src={assets.nosVemos}
+        alt="Nos vemos em breve!"
+        className="w-[100vw] md:w-[70vw] lg:w-[40vw]"
+      />
     </div>
-  )
+  );
 }
 
 export default Footer

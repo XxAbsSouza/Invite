@@ -7,14 +7,14 @@ export default async (req, context) => {
 
   try {
     const body = await req.json();
-    const searchName = body.name.toLowerCase();
+    const searchName = body.name; // Não usar toLowerCase
 
-    // Primeiro: busca na tabela de Convidados (Nome)
+    // Busca exata na tabela de Convidados
     const convidadoRes = await notion.databases.query({
       database_id: convidadosDbId,
       filter: {
         property: "Nome",
-        rich_text: { contains: searchName },
+        rich_text: { equals: searchName },
       },
     });
 
@@ -34,12 +34,12 @@ export default async (req, context) => {
       );
     }
 
-    // Se não achou, busca na tabela de Acompanhantes (Nome)
+    // Se não achou, busca exata na tabela de Acompanhantes
     const acompanhanteRes = await notion.databases.query({
       database_id: acompanhantesDbId,
       filter: {
         property: "Nome",
-        title: { contains: searchName },
+        title: { equals: searchName },
       },
     });
 
