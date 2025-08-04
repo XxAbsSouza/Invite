@@ -7,6 +7,8 @@ const ResponseReport = () => {
   const [guestData, setGuestData] = useState(null);
   const [loading, setLoading] = useState(true);
 
+
+
   useEffect(() => {
     const fetchGuest = async () => {
       const pageId = localStorage.getItem("notionPageId");
@@ -50,13 +52,20 @@ const ResponseReport = () => {
       </div>
     );
 
-  if (!guestData) return <p>Não foi possível carregar os dados.</p>;
+  if (!guestData)
+    return (
+      <div className="flex justify-center items-center h-[90vh]">
+        <p className="text-center text-gray-600">
+          Não foi possível carregar os dados.
+        </p>
+      </div>
+    );
 
   const convidado = guestData.convidado?.properties || {};
   const acompanhantes = guestData.acompanhantes || [];
 
   return (
-    <div className="relative w-full flex flex-col items-center justify-center min-h-[90vh] bg-Presenca pt-5">
+    <div className="relative w-full flex flex-col items-center justify-center min-h-[90vh] bg-Presenca py-8 px-4">
       <img
         src={assets.flores}
         alt="decoração esquerda"
@@ -68,92 +77,138 @@ const ResponseReport = () => {
         className="absolute top-0 right-0 z-10 w-[25vw] md:w-[15vw] lg:w-[8vw] translate-x-1/6 -translate-y-1/5 rotate-[270deg]"
       />
 
-        {convidado.Confirmação?.status?.name === "Vai" && (
-          <div role="alert" className="alert alert-success mb-4 mb-10 md:mb-25">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6 shrink-0 stroke-current"
-              fill="none"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-              />
-            </svg>
-            <span>¡Su presencia está confirmada!</span>
-          </div>
-        )}
+      {/* Alerta */}
+      {convidado.Confirmação?.status?.name === "Vai" && (
+        <div className="alert alert-success mb-6 flex items-center">
+          <svg
+            className="h-6 w-6 mr-2 stroke-current"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+            />
+          </svg>
+          <span className="font-medium">¡Su presencia está confirmada!</span>
+        </div>
+      )}
 
-        {convidado.Confirmação?.status?.name === "Não Vai" && (
-          <div role="alert" className="alert alert-error mb-4 mb-25">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6 shrink-0 stroke-current"
-              fill="none"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
-              />
-            </svg>
-            <span>¡Confirmaste que NO IRÁS!</span>
-          </div>
-        )}
-      <div className="flex flex-col items-center">
+      {convidado.Confirmação?.status?.name === "Não Vai" && (
+        <div className="alert alert-error mb-6 flex items-center">
+          <svg
+            className="h-6 w-6 mr-2 stroke-current"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+            />
+          </svg>
+          <span className="font-medium">¡Confirmaste que NO IRÁS!</span>
+        </div>
+      )}
 
-        <h2 className="text-xl font-bold mb-4">Detalhes da Confirmação</h2>
-        <p>
-          <strong>Nome:</strong> {convidado.Nome?.title?.[0]?.plain_text}
-        </p>
-        <p>
-          <strong>Email:</strong> {convidado.Email?.email}
-        </p>
-        <p>
-          <strong>Telefone:</strong> {convidado.Phone?.phone_number}
-        </p>
-        <p>
-          <strong>Confirmação:</strong> {convidado.Confirmação?.status?.name}
-        </p>
-        <p>
-          <strong>Quantidade de acompanhantes:</strong>{" "}
-          {convidado.Quantidade?.number}
-        </p>
-        <p>
-          <strong>Observação:</strong>{" "}
-          {convidado.Observacao?.rich_text?.[0]?.plain_text}
-        </p>
+      {/* Card principal */}
+      <div className="bg-white/80 backdrop-blur-md rounded-2xl shadow-md w-full max-w-xl p-6 space-y-4">
+        <h2 className="text-2xl font-semibold text-center text-[#614183]">
+          Detalles de la Confirmación
+        </h2>
 
-        <h3 className="mt-4 font-semibold">Acompanhantes:</h3>
-        {acompanhantes.length === 0 ? (
-          <p>Nenhum acompanhante registrado.</p>
-        ) : (
-          acompanhantes.map((a, index) => (
-            <div key={a.id}>
-              <p>
-                - {a.properties?.Nome?.title?.[0]?.plain_text} (
-                {a.properties?.Tipo?.select?.name})
-              </p>
+        <div>
+          <h3 className="text-sm font-light text-[#614183]">Nombre</h3>
+          <p className="font-medium">
+            {convidado.Nome?.title?.[0]?.plain_text}
+          </p>
+        </div>
+
+        <div>
+          <h3 className="text-sm font-light text-[#614183]">Email</h3>
+          <p className="font-medium">{convidado.Email?.email}</p>
+        </div>
+
+        <div>
+          <h3 className="text-sm font-light text-[#614183]">Teléfono</h3>
+          <p className="font-medium">{convidado.Phone?.phone_number}</p>
+        </div>
+
+        <div>
+          <h3 className="text-sm font-light text-[#614183]">¿Vas a asistir?</h3>
+          <p className="font-medium flex items-center space-x-2">
+            {convidado.Confirmação?.status?.name === "Vai" ? (
+              <>
+                <span className="text-green-600">✔</span>
+                <span>Sí</span>
+              </>
+            ) : convidado.Confirmação?.status?.name === "Não Vai" ? (
+              <>
+                <span className="text-red-600">✘</span>
+                <span>No</span>
+              </>
+            ) : (
+              <span className="text-gray-500">Sin respuesta</span>
+            )}
+          </p>
+        </div>
+
+        <div>
+          <h3 className="text-sm font-light text-[#614183]">
+            Mis Acompañantes:{" "}
+            {acompanhantes.length > 0
+              ? convidado.Quantidade?.number ?? acompanhantes.length
+              : 0}
+          </h3>
+          {acompanhantes.length === 0 ? (
+            <p className="font-medium text-gray-500">
+              No hay acompañante registrado.
+            </p>
+          ) : (
+            <div className="space-y-1">
+              {acompanhantes.map((a) => (
+                <p key={a.id} className="font-medium">
+                  <span className="text-[#614183] text-sm">●</span>{" "}
+                  {a.properties?.Nome?.title?.[0]?.plain_text} (
+                  {a.properties?.Tipo?.select?.name})
+                </p>
+              ))}
             </div>
-          ))
-        )}
+          )}
+        </div>
+
+        <div>
+          <h3 className="text-sm font-light text-[#614183]">Observaciones</h3>
+          {convidado.Observacao?.rich_text?.length === 0 ? (
+            <p className="font-medium text-gray-500">
+              Ninguna observación registrada.
+            </p>
+          ) : (
+            <p className="font-medium">
+              {convidado.Observacao?.rich_text?.[0]?.plain_text}
+            </p>
+          )}
+        </div>
 
         <button
           onClick={() => navigate("/formsConfirmation")}
-          className="mt-4 btn btn-primary"
+          className="btn btn-style btn-outline transition-colors duration-300 w-full mt-2"
         >
-          Modificar resposta
+          Modificar respuesta
+        </button>
+        <button
+          type="button"
+          onClick={() => navigate("/")}
+          className="btn btn-outline w-full mt-2"
+        >
+          ← Volver al inicio
         </button>
       </div>
     </div>
   );
-
 };
 
 export default ResponseReport;
-
