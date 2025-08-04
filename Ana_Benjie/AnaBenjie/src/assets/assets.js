@@ -30,6 +30,9 @@ import foto10 from "./foto10.jfif";
 import foto11 from "./foto11.jfif";
 import foto12 from "./foto12.jfif";
 import foto13 from "./foto13.jfif";
+import linha from "./linha.svg"
+import mapa from "./mapa.svg"
+import vinte from "./vinte.svg"
 
 export const assets = {
   heroIMG,
@@ -45,6 +48,9 @@ export const assets = {
   novembroRosa,
   nosVemos,
   tuConfirmacion,
+  linha,
+  mapa,
+  vinte,
 };
 
 export const infosGeneralesData = [

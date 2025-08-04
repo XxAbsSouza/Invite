@@ -217,17 +217,17 @@ const handleSubmit = async (e) => {
         onSubmit={handleSubmit}
         className="bg-white/80 backdrop-blur-md rounded-2xl shadow-md w-full max-w-xl p-6 space-y-4"
       >
-        <h2 className="text-2xl font-semibold text-center text-[#614183]">
+        <h2 className=" text-center text-[#614183]">
           {isFirstResponse ? "Registrar Respuesta" : "Modificar Respuesta"}
         </h2>
 
         <div>
-          <h3 className="text-sm font-light text-[#614183]">Nombre</h3>
+          <p className="text-sm font-light text-[#614183]">Nombre</p>
           <p className="font-medium">{formData.nome}</p>
         </div>
 
         <div>
-          <h3 className="text-sm font-light text-[#614183]">¿Vas a asistir?</h3>
+          <p className="text-sm font-light text-[#614183]">¿Vas a asistir?</p>
           <div className="flex gap-4 mt-1">
             <label className="flex items-center gap-1">
               <input
@@ -254,7 +254,7 @@ const handleSubmit = async (e) => {
         </div>
 
         <div>
-          <h3 className="text-sm font-light text-[#614183]">Email</h3>
+          <p className="text-sm font-light text-[#614183]">Email</p>
           <input
             name="email"
             value={formData.email}
@@ -265,7 +265,7 @@ const handleSubmit = async (e) => {
         </div>
 
         <div>
-          <h3 className="text-sm font-light text-[#614183]">Teléfono</h3>
+          <p className="text-sm font-light text-[#614183]">Teléfono</p>
           <input
             name="phone"
             value={formData.phone}
@@ -277,9 +277,9 @@ const handleSubmit = async (e) => {
 
         {formData.acompanhantes.length > 0 && (
           <div>
-            <h3 className="text-sm font-light text-[#614183]">
+            <p className="text-sm font-light text-[#614183]">
               Mis Acompañantes: {formData.quantidade}
-            </h3>
+            </p>
             <div className="space-y-1 mt-1">
               {formData.acompanhantes.map((a, idx) => (
                 <p key={idx} className="font-medium">
@@ -292,7 +292,7 @@ const handleSubmit = async (e) => {
         )}
 
         <div>
-          <h3 className="text-sm font-light text-[#614183]">Observaciones</h3>
+          <p className="text-sm font-light text-[#614183]">Observaciones</p>
           <input
             name="observacao"
             value={formData.observacao}

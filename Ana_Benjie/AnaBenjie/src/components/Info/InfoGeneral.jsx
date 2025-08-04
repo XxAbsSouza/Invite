@@ -20,7 +20,7 @@ const InfoGeneral = () => {
       classes: "w-[15vw] md:w-[9vw] lg:w-[7vw]",
     },
     {
-      src: assets.dezenove,
+      src: assets.vinte,
       alt: "Dia Vinte, O Grande Dia",
       classes: "w-[20vw] md:w-[13vw] lg:w-[10vw]",
     },
@@ -55,7 +55,7 @@ const InfoGeneral = () => {
           <img
             src={assets.novembroRosa}
             alt="Novembro"
-            className="md:w-[30vw] mb-0 w-[50vw]"
+            className="md:w-[20vw] mb-4 w-[50vw]"
           />
           <div className="flex items-center justify-between max-w-[80vw] md:max-w-[50vw] lg:max-w-[45vw] w-full">
             {dias.map((dia, index) => (

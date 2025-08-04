@@ -19,12 +19,10 @@ const ComoChegar = () => {
 
       {/* Conteúdo principal */}
       <div className=" w-full max-w-[1200px] ">
-        <h1 className="mb-5 p-4 text-center text-4xl text-[#b2af80]">
-          Como Chegar
-        </h1>
+        <h1 className="mt-8 text-center text-[#C57B91]">Como llegar</h1>
 
         <div className="flex flex-col items-center justify-center pb-9 my-5">
-          <div className="mt-10 px-4 sm:px-5 w-full max-w-[90vw] text-center">
+          <div className="mt-5 px-4 sm:px-5 w-full max-w-[90vw] text-center">
             <p className="mb-4 text-black">
               Digite aqui o local de partida para encontrar a melhor rota!
             </p>

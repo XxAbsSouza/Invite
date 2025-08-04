@@ -5,6 +5,21 @@ html {
     font-family: "Poppins", sans-serif;
     scroll-behavior: smooth;
 }
+h1, h2, h3, .title {
+  font-family: 'Palisade', sans-serif;
+}
+
+h1 {
+  font-size: clamp(3rem, 5vw, 7rem);
+}
+h2{
+  font-size: clamp(3rem, 4vw, 5rem);
+
+}
+h3 {
+  font-size: clamp(2rem, 3vw, 4rem);
+
+}
 
 /* Para navegadores baseados em WebKit (Chrome, Safari, Edge) */
 ::-webkit-scrollbar {
@@ -20,3 +35,18 @@ html {
 body, html {
   overflow: auto;
 }
+
+@font-face {
+  font-family: 'Palisade';
+  src: url('/fonts/Palisade.otf') format('opentype'), url('/fonts/Palisade.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  background-image: url('bgHtml.jpg'); /* ajuste o caminho */
+  background-repeat: no-repeat; /* faz repetir */
+  background-size: cover;     /* mantém no tamanho original */
+  /* background-color: #fff;    cor de fundo se quiser complementar */
+}
+

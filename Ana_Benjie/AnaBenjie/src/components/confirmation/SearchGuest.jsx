@@ -56,12 +56,12 @@ const SearchGuest = () => {
         className="absolute top-0 right-0 z-10 w-[25vw] md:w-[15vw] lg:w-[8vw] translate-x-1/6 -translate-y-1/5 rotate-[270deg]"
       />
       <div className="flex flex-col items-center justify-center w-[90vw]   h-[70vh] ">
-        <h1>Confirmar Presença</h1>
+        <h1 className="text-[#765994]">Confirmar Presença</h1>
         <input
           type="text"
           value={guestName}
           onChange={(e) => setGuestName(e.target.value)}
-          placeholder="Digite el nombre de la invitación"
+          placeholder="Digite el nombre de tu invitación"
           className="mt-10 p-2 border rounded w-full text-base"
         />
         {error && <p className="text-red-500 mt-2">{error}</p>}

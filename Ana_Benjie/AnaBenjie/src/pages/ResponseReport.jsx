@@ -116,29 +116,29 @@ const ResponseReport = () => {
 
       {/* Card principal */}
       <div className="bg-white/80 backdrop-blur-md rounded-2xl shadow-md w-full max-w-xl p-6 space-y-4">
-        <h2 className="text-2xl font-semibold text-center text-[#614183]">
+        <h2 className=" text-center text-[#614183]">
           Detalles de la Confirmación
         </h2>
 
         <div>
-          <h3 className="text-sm font-light text-[#614183]">Nombre</h3>
+          <p className="text-sm font-light text-[#614183]">Nombre</p>
           <p className="font-medium">
             {convidado.Nome?.title?.[0]?.plain_text}
           </p>
         </div>
 
         <div>
-          <h3 className="text-sm font-light text-[#614183]">Email</h3>
+          <p className="text-sm font-light text-[#614183]">Email</p>
           <p className="font-medium">{convidado.Email?.email}</p>
         </div>
 
         <div>
-          <h3 className="text-sm font-light text-[#614183]">Teléfono</h3>
+          <p className="text-sm font-light text-[#614183]">Teléfono</p>
           <p className="font-medium">{convidado.Phone?.phone_number}</p>
         </div>
 
         <div>
-          <h3 className="text-sm font-light text-[#614183]">¿Vas a asistir?</h3>
+          <p className="text-sm font-light text-[#614183]">¿Vas a asistir?</p>
           <p className="font-medium flex items-center space-x-2">
             {convidado.Confirmação?.status?.name === "Vai" ? (
               <>
@@ -157,12 +157,12 @@ const ResponseReport = () => {
         </div>
 
         <div>
-          <h3 className="text-sm font-light text-[#614183]">
+          <p className="text-sm font-light text-[#614183]">
             Mis Acompañantes:{" "}
             {acompanhantes.length > 0
               ? convidado.Quantidade?.number ?? acompanhantes.length
               : 0}
-          </h3>
+          </p>
           {acompanhantes.length === 0 ? (
             <p className="font-medium text-gray-500">
               No hay acompañante registrado.
@@ -181,7 +181,7 @@ const ResponseReport = () => {
         </div>
 
         <div>
-          <h3 className="text-sm font-light text-[#614183]">Observaciones</h3>
+          <p className="text-sm font-light text-[#614183]">Observaciones</p>
           {convidado.Observacao?.rich_text?.length === 0 ? (
             <p className="font-medium text-gray-500">
               Ninguna observación registrada.
