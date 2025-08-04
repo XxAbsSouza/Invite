@@ -44,7 +44,7 @@ body, html {
 }
 
 body {
-  background-image: url('bgHtml.jpg'); /* ajuste o caminho */
+  background-image: url('/images/bgHtml.jpg'); /* ajuste o caminho */
   background-repeat: no-repeat; /* faz repetir */
   background-size: cover;     /* mantém no tamanho original */
   /* background-color: #fff;    cor de fundo se quiser complementar */
