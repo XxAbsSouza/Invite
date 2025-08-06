@@ -312,7 +312,7 @@ const handleSubmit = async (e) => {
           type="submit"
           className="w-full p-2 rounded border focus:outline-none focus:ring-2 focus:ring-[#614183]"
         >
-          {isFirstResponse ? "Registrar respuesta" : "Actualizar respuesta"}
+          {isFirstResponse ? "Registrar" : "Actualizar respuesta"}
         </button>
       </form>
     </div>

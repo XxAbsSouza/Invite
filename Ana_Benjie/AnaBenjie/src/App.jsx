@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 
 import MusicPlayer from "./components/musicPlayer/MusicPlayer";
+import NavBar from "./components/navbar/NavBar";
 import ScrollToTop from "./components/ScrollToTop";
 import { Hero } from "./components/hero/Hero";
 import InfoGeneral from "./components/Info/InfoGeneral";
@@ -22,6 +23,7 @@ import FormConfirm from "./pages/FormConfirm";
 import SearchGuest from "./components/confirmation/SearchGuest";
 import MessageSorry from "./components/confirmation/MessageSorry";
 import ResponseReport from "./pages/ResponseReport";
+
 
 import "./App.css";
 
@@ -41,6 +43,7 @@ const BaseLayout = ({ showConfirmation = false, showFooter = false }) => (
 function App() {
   return (
     <Router>
+      <NavBar />
       <ScrollToTop />
       <MusicPlayer />
       <Routes>
@@ -48,8 +51,8 @@ function App() {
           path="/"
           element={
             <div className="w-full overflow-hidden text-xl flex flex-col items-center">
-              <Hero className="autoShow" />
-              <InfoGeneral className="autoShow" />
+              <Hero  />
+              <InfoGeneral  />
               <Citacao />
               <Countdown />
               <Gallery />

@@ -97,6 +97,7 @@ const InfoGeneral = ({ className = "" }) => {
           {infosPagina1.map((info, index) => (
             <div
               key={index}
+              data-title={info.title}
               className={`flex flex-col ${
                 index % 2 === 0 ? "items-start" : "items-end"
               } mx-2 py-4 w-[90vw] md:w-[80vw] lg:w-[70vw]`}
