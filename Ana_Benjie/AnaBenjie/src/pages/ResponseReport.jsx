@@ -7,9 +7,6 @@ const ResponseReport = () => {
   const [guestData, setGuestData] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    console.log("acompanhantes mudou:", acompanhantes);
-  }, [acompanhantes]);
 
   useEffect(() => {
     const fetchGuest = async () => {
@@ -159,16 +156,16 @@ const ResponseReport = () => {
         </div>
 
         <div className="space-y-1">
-          {console.log("acompanhantes:", acompanhantes)}
           {acompanhantes
             .slice()
             .sort((a, b) => {
-              const tipoA = a.properties?.Tipo?.select?.name || "";
-              const tipoB = b.properties?.Tipo?.select?.name || "";
+              const tipoA =
+                a.properties?.Tipo?.select?.name?.toLowerCase() || "";
+              const tipoB =
+                b.properties?.Tipo?.select?.name?.toLowerCase() || "";
+
               if (tipoA === tipoB) return 0;
-              if (tipoA === "Adulto") return -1;
-              if (tipoB === "Adulto") return 1;
-              return 0;
+              return tipoA === "adulto" ? -1 : 1;
             })
             .map((a) => (
               <p key={a.id} className="font-medium">

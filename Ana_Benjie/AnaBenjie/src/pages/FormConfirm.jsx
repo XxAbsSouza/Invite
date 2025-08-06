@@ -278,15 +278,21 @@ const handleSubmit = async (e) => {
         {formData.acompanhantes.length > 0 && (
           <div>
             <p className="text-sm font-light text-[#614183]">
-              Mis Acompañantes: {formData.quantidade}
+              Mis Acompañantes: {formData.acompanhantes.length}
             </p>
             <div className="space-y-1 mt-1">
-              {formData.acompanhantes.map((a, idx) => (
-                <p key={idx} className="font-medium">
-                  <span className="text-[#614183] text-sm">●</span> {a.nome} (
-                  {a.tipo})
-                </p>
-              ))}
+              {[...formData.acompanhantes]
+                .sort((a, b) => {
+                  const tipoA = a.tipo.toLowerCase();
+                  const tipoB = b.tipo.toLowerCase();
+                  if (tipoA === tipoB) return 0;
+                  return tipoA === "adulto" ? -1 : 1;
+                })
+                .map((a, idx) => (
+                  <p key={idx} className="font-medium">
+                    <span className="text-[#614183] text-sm">●</span> {a.nome}
+                  </p>
+                ))}
             </div>
           </div>
         )}
