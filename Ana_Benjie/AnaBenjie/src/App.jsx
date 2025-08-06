@@ -23,9 +23,12 @@ import SearchGuest from "./components/confirmation/SearchGuest";
 import MessageSorry from "./components/confirmation/MessageSorry";
 import ResponseReport from "./pages/ResponseReport";
 
+import "./App.css";
+
+
 // Componente base de layout
 const BaseLayout = ({ showConfirmation = false, showFooter = false }) => (
-  <div className="w-full overflow-hidden text-xl flex flex-col items-center">
+  <div className="w-full text-xl flex flex-col items-center">
     <Outlet />
     <div className="w-2/4 my-5 h-px bg-gradient-to-r from-transparent via-gray-400 to-transparent"></div>
 
@@ -45,8 +48,8 @@ function App() {
           path="/"
           element={
             <div className="w-full overflow-hidden text-xl flex flex-col items-center">
-              <Hero />
-              <InfoGeneral />
+              <Hero className="autoShow" />
+              <InfoGeneral className="autoShow" />
               <Citacao />
               <Countdown />
               <Gallery />

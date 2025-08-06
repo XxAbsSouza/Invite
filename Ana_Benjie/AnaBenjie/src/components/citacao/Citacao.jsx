@@ -20,9 +20,13 @@ const Citacao = () => {
       {citacoesPagina1.map((citacao, index) => (
         <div key={index} className="bg p-5 flex flex-col items-start">
           {/* Bloco do h3 e p alinhados à direita */}
-          <div className="flex flex-col items-end self-end md:self-center md:items-center mt-4">
-            <h3>- El Amor lo conquista todo</h3>
-            <p className="text-sm italic mb-7">Dr. William Soto Santiago</p>
+          <div className="flex flex-col items-end text-center md:self-center md:items-center mt-4">
+            <h2 className=" leading-[0.9] text-center">
+              - El Amor lo conquista todo
+            </h2>
+            <p className="mt-3 self-end text-sm italic mb-7">
+              Dr. William Soto Santiago
+            </p>
           </div>
 
           {/* Texto da citação */}

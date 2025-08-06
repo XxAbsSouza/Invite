@@ -11,9 +11,10 @@ const Confirmation = () => {
 
   return (
     <div className="my-10 flex flex-col items-center justify-center gap-6 w-[90vw] text-center">
-      <h2 className="text-[#b2af80] leading-[0.9]">
+      <h2 className="text-[#b2af80] leading-[1.1] text-center break-words">
         Tú confirmación es importante
       </h2>
+
       {infosPagina2.map((info, index) => (
         <div key={index} className="flex flex-col items-center">
           <ReactMarkdown>{info.description}</ReactMarkdown>

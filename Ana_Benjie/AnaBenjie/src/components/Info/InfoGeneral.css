@@ -14,3 +14,35 @@
 .description span {
   white-space: nowrap;
 }
+
+.img-scroll-effect {
+  filter: drop-shadow(0 0 6px rgba(255, 0, 0, 0.4));
+  transition: filter 0.7s ease;
+  transform-origin: center;
+  /* sem animação no estado inicial */
+}
+
+.img-scroll-effect.in-view {
+  filter: drop-shadow(0 0 10px rgba(255, 0, 0, 0.7));
+  animation: heartbeat 3s infinite;
+}
+
+@keyframes heartbeat {
+  0%, 100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 6px rgba(185, 37, 37, 0.184));
+  }
+  25% {
+    transform: scale(1.08);
+    filter: drop-shadow(0 0 12px rgba(255, 0, 0, 0.237));
+  }
+  50% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 6px rgba(255, 0, 0, 0.23));
+  }
+  75% {
+    transform: scale(1.04);
+    filter: drop-shadow(0 0 9px rgba(134, 35, 35, 0.256));
+  }
+}
+

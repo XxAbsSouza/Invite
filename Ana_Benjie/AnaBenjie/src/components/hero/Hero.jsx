@@ -2,14 +2,10 @@ import React from 'react'
 import { assets } from "../../assets/assets";
 import "./Hero.css";
 
-export const Hero = () => {
+export const Hero = ({ className = "" }) => {
   return (
     <div
-      className="mb-4 
-      h-[95vh] md:h-[160vh] lg:h-[200vh] xl:h-[245vh] 
-      bg-contain bg-no-repeat 
-      flex justify-center
-      hero_img w-full"
+      className={`mb-4 h-[95vh] md:h-[160vh] lg:h-[200vh] xl:h-[245vh] bg-contain bg-no-repeat flex justify-center hero_img w-full  ${className}`}
       id="Hero"
     >
       <div className="flex flex-col items-center mt-16 md:pt-10 space-y-4 ">
