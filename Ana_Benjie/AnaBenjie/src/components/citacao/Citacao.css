@@ -7,3 +7,6 @@
 .bg-Presenca {
   background: linear-gradient(to bottom, #baabca5c, rgba(255, 255, 255, 0));
 }
+.bg-tips {
+  background: linear-gradient(to bottom, #fddcc435, rgba(255, 255, 255, 0));
+}

@@ -11,3 +11,6 @@
     background-color: #d9d7ba3a; */
     border-radius: 0.5rem;
 }
+.description span {
+  white-space: nowrap;
+}

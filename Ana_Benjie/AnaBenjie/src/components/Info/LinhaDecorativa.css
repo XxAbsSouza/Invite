@@ -1,0 +1,32 @@
+.linha-decorativa-svg {
+
+  position: absolute;
+  inset: 0;
+  z-index: 0;   /* conteúdo acima deve ter z-index maior */
+  width: 100%;
+  max-height: 100%;
+  top: 30%;
+  left: -5%;
+}
+
+@media (max-width: 768px) {
+  .linha-decorativa-svg {
+    top: 26%;
+  }
+}
+@media (max-width: 426px) {
+  .linha-decorativa-svg {
+    top: 25%;
+  }
+}
+@media (max-width: 376px) {
+  .linha-decorativa-svg {
+    top: 23%;
+  }
+}
+.linha {
+            stroke: #ffacae90;
+            stroke-width: 0.5rem;
+            stroke-linejoin: round;
+            fill: none;
+          }

@@ -8,7 +8,7 @@ const Countdown = () => {
       <div className="flex flex-col items-center pt-12 justify-center text-center">
         <h1 className="my-5 text-[#B0BCE5]">Quedan</h1>
         <CountdownTimer />
-        <p className="mt-6">para que entre nosotros ya no hayan 6.376km</p>
+        <p className="mt-6 px-5">para que entre nosotros ya no hayan 6.376km</p>
       </div>
       <img
         src={assets.mapa}

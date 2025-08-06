@@ -48,18 +48,19 @@ export const assets = {
   novembroRosa,
   nosVemos,
   tuConfirmacion,
-  linha,
   mapa,
   vinte,
 };
+
+export { linha };
 
 export const infosGeneralesData = [
   {
     pagina: 1,
     alt: "Lugar",
-    title: lugar,
+    title: "Lugar",
     description:
-      "Campo de los abuelos de Ana, **Campo de los olivos** (esta linea es de ejemplo jajaja)",
+      "**Campo de los Olivos**, <br /> Estrada Municipal José Floriano Domingues, Guareí - SP",
     subTitleField: "Digite aqui o endereço de origem para traçar uma rota",
     hasMap: true,
     mapEmbedUrl:
@@ -72,14 +73,14 @@ export const infosGeneralesData = [
   {
     pagina: 1,
     alt: "Hora",
-    title: hora,
+    title: "Hora",
     description:
-      "Te esperamos a las **3:00 p.m.** y agradecemos tu puntualidad.",
+      "Te esperamos a las <span>**2:00 p.m.**</span> y agradecemos tu puntualidad.",
   },
   {
     pagina: 1,
     alt: "Vestimenta",
-    title: hora,
+    title: "Vestimenta",
     description:
       "**Casual elegante**, toma en cuenta de que la celebración será en un campo al aire libre.",
     hasBtn: true,
@@ -166,3 +167,18 @@ export const fotosCarrossel = [
     img: foto13
   },
 ]
+
+export const tips = [
+  {
+    title: "Cuidados Personal",
+    text: "Queridos invitados, para que todos disfruten al máximo de este día tan especial, les sugerimos tomar en cuenta algunas recomendaciones:<br /><br /> <span>●</span> **Llevar repelente** para protegerse de los mosquitos y otros insectos.\n- <span>●</span> **Vestir ropa ligera y cómoda**, considerando que el clima será cálido.\n- <span>●</span> **Si eres propenso a alergias**, no olvides llevar tu antihistamínico o medicamento habitual.<br /><br />¡Estamos muy felices de compartir este momento con ustedes y esperamos que lo disfruten plenamente!",
+  },
+  {
+    title: "Vestimienta",
+    text: "_Para respetar la tradición y el protagonismo de este día tan especial_, <br />les pedimos amablemente que **eviten vestir de blanco**, ya que esta es el color reservada para la novia, y también que **eviten el beige**, color reservado para el novio.",
+  },
+  {
+    title: "Acompañantes",
+    text: "Queridos amigos y familiares, entregamos las invitaciones **ya contemplando a los acompañantes** de cada uno o de cada familia. <br />Por eso, les pedimos con mucho cariño que respeten la lista prevista y **eviten traer acompañantes adicionales.**\n\nSi tienen alguna duda o necesidad especial, no duden en contactar a los novios directamente. Agradecemos mucho su comprensión y apoyo para que este día sea inolvidable para todos.",
+  },
+];

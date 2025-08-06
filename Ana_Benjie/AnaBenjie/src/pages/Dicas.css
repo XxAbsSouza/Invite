@@ -1,0 +1,59 @@
+h3 {
+    font-size: clamp(2rem, 2.3rem, 2.5rem);
+}
+h1 {
+    font-size: clamp(3rem, 4rem, 4rem);
+}
+
+span {
+    color: #e3c3ac;
+}
+
+/* Usar a tipografia da prose do tailwind para melhorar texto */
+/* .gradient-white-soft {
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(255, 255, 255, 0.588) 30%,
+    transparent 100%
+  );
+} */
+
+
+
+.prose {
+  line-height: 1.6;
+  font-size: 1.1rem;
+  color: #4a4a4a;
+}
+
+
+.prose strong {
+  color: #c87130;
+  font-weight: 700;
+}
+
+
+/* Flores decorativas */
+img {
+  user-select: none;
+}
+
+.gradient-left {
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(255, 255, 255, 0.621) 70%, 
+    transparent 100%
+  );
+}
+
+.gradient-right {
+  background: linear-gradient(
+    to left,
+    transparent 0%,
+    rgba(255, 255, 255, 0.621) 70%, 
+    transparent 100%
+  );
+}
+

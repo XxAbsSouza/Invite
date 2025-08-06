@@ -7,7 +7,7 @@ const Footer = () => {
       <img
         src={assets.nosVemos}
         alt="Nos vemos em breve!"
-        className="w-[100vw] md:w-[70vw] lg:w-[40vw]"
+        className="min-w-[100vw] md:min-w-[60vw] lg:min-w-[40vw]"
       />
     </div>
   );
