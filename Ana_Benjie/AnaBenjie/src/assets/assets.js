@@ -60,7 +60,7 @@ export const infosGeneralesData = [
     alt: "Lugar",
     title: "Lugar",
     description:
-      "**Campo de los Olivos**, <br /> Estrada Municipal José Floriano Domingues, Guareí - SP",
+      "**Monte de los Olivos**, <br /> Estrada Municipal José Floriano Domingues, Guareí - SP",
     subTitleField: "Digite aqui o endereço de origem para traçar uma rota",
     hasMap: true,
     mapEmbedUrl:
