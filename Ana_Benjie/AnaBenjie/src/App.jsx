@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 
 import MusicPlayer from "./components/musicPlayer/MusicPlayer";
+import ScrollToTop from "./components/ScrollToTop";
 import { Hero } from "./components/hero/Hero";
 import InfoGeneral from "./components/Info/InfoGeneral";
 import Dicas from "./pages/Dicas";
@@ -37,7 +38,8 @@ const BaseLayout = ({ showConfirmation = false, showFooter = false }) => (
 function App() {
   return (
     <Router>
-        <MusicPlayer />
+      <ScrollToTop />
+      <MusicPlayer />
       <Routes>
         <Route
           path="/"
