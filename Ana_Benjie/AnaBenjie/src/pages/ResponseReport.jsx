@@ -169,13 +169,22 @@ const ResponseReport = () => {
             </p>
           ) : (
             <div className="space-y-1">
-              {acompanhantes.map((a) => (
-                <p key={a.id} className="font-medium">
-                  <span className="text-[#614183] text-sm">●</span>{" "}
-                  {a.properties?.Nome?.title?.[0]?.plain_text} (
-                  {a.properties?.Tipo?.select?.name})
-                </p>
-              ))}
+              {acompanhantes
+                .slice() // evita modificar array original
+                .sort((a, b) => {
+                  const tipoA = a.properties?.Tipo?.select?.name || "";
+                  const tipoB = b.properties?.Tipo?.select?.name || "";
+                  if (tipoA === tipoB) return 0;
+                  if (tipoA === "Adulto") return -1; // Adulto antes
+                  if (tipoB === "Adulto") return 1;
+                  return 0;
+                })
+                .map((a) => (
+                  <p key={a.id} className="font-medium">
+                    <span className="text-[#614183] text-sm">●</span>{" "}
+                    {a.properties?.Nome?.title?.[0]?.plain_text}
+                  </p>
+                ))}
             </div>
           )}
         </div>
