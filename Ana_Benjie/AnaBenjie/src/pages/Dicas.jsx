@@ -9,7 +9,7 @@ import "./Dicas.css";
 const Dicas = () => {
   const dicas = tips
   return (
-    <div className="relative flex flex-col items-center justify-center w-full bg-tips p-5 min-h-[80vh]">
+    <div className="relative flex flex-col items-center justify-center w-full bg-tips p-5 min-h-[80vh] pagina-dicas">
       {/* Flores decorativas no topo */}
       <img
         src={assets.flores}
