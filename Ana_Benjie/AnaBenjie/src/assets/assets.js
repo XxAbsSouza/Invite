@@ -33,8 +33,6 @@ import foto13 from "./foto13.jfif";
 import linha from "./linha.svg"
 import mapa from "./mapa.svg"
 import vinte from "./vinte.svg"
-import flor from "./flor.png"
-import arvore from "./arvore.png"
 
 export const assets = {
   heroIMG,
@@ -52,8 +50,6 @@ export const assets = {
   tuConfirmacion,
   mapa,
   vinte,
-  flor,
-  arvore
 };
 
 export { linha };
