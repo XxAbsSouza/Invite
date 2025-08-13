@@ -1,13 +1,16 @@
-import React from 'react'
-import { assets, tips } from '../assets/assets';
-
+import React from "react";
+import { assets } from "../assets/assets";
 import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
+import { useTranslation } from "react-i18next";
 
 import "./Dicas.css";
 
 const Dicas = () => {
-  const dicas = tips
+  const { t } = useTranslation("dicas");
+  const tips = t("tips", { returnObjects: true });
+  const title = t("title");
+
   return (
     <div className="relative flex flex-col items-center justify-center w-full bg-tips p-5 min-h-[80vh] pagina-dicas">
       {/* Flores decorativas no topo */}
@@ -21,11 +24,15 @@ const Dicas = () => {
         alt="decoração direita"
         className="absolute top-0 right-0 z-10 w-[25vw] md:w-[15vw] lg:w-[10vw] translate-x-1/6 -translate-y-1/5 rotate-[270deg]"
       />
-      <h1 className="text-[#df8646] mb-8">Tips</h1>
+
+      <h1 className="text-[#df8646] mb-8">{title}</h1>
+
       {tips.map((tip, index) => (
-        <div className="flex flex-col items-center justify-center my-2">
+        <div
+          key={index}
+          className="flex flex-col items-center justify-center my-2"
+        >
           <div
-            key={index}
             className={`flex flex-col ${
               index % 2 === 0
                 ? "items-start text-start gradient-left"
@@ -43,6 +50,6 @@ const Dicas = () => {
       ))}
     </div>
   );
-}
+};
 
-export default Dicas
+export default Dicas;

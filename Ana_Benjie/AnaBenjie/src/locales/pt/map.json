@@ -1,0 +1,7 @@
+{
+  "placeholder_origin": "Digite o ponto de partida",
+  "confirm_open_map": "Quer abrir o mapa no Google Maps?",
+  "error_select_place": "Por favor, selecione um local antes de traçar a rota.",
+  "btn_trace_route": "Traçar rota",
+  "marker_label": "Local do Casamento"
+}

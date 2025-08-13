@@ -46,3 +46,6 @@
   }
 }
 
+.mes h1 {
+  font-size: clamp(4rem, 7vw, 6rem);
+}

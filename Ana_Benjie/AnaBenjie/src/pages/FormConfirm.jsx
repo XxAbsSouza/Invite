@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { assets } from "../assets/assets";
-
+import { useTranslation } from "react-i18next";
 
 const ModalSuccess = ({ show, message, onClose }) => {
-  const [visible, setVisible] = useState(false);
+  const { t } = useTranslation("confirmation");
 
+  const [visible, setVisible] = useState(false);
 
   useEffect(() => {
     if (show) {
@@ -38,6 +39,8 @@ const ModalSuccess = ({ show, message, onClose }) => {
 };
 
 const FormConfirm = () => {
+  const { t } = useTranslation("confirmation");
+
   const [formData, setFormData] = useState({
     nome: "",
     email: "",
@@ -47,7 +50,7 @@ const FormConfirm = () => {
     confirmacao: "",
     acompanhantes: [],
   });
-  const [hadPreviousResponse, setHadPreviousResponse] = useState(false); // <- novo
+  const [hadPreviousResponse, setHadPreviousResponse] = useState(false);
   const [loading, setLoading] = useState(true);
   const [showSuccess, setShowSuccess] = useState(false);
   const navigate = useNavigate();
@@ -77,7 +80,6 @@ const FormConfirm = () => {
         const confirmacaoAtual =
           data.convidado?.properties?.Confirmação?.status?.name || "";
 
-        // detecta se já tinha resposta antes
         setHadPreviousResponse(
           confirmacaoAtual === "Vai" || confirmacaoAtual === "Não Vai"
         );
@@ -124,34 +126,32 @@ const FormConfirm = () => {
     }));
   };
 
-  const isFirstResponse = !hadPreviousResponse; // fixado só pela resposta que veio
+  const isFirstResponse = !hadPreviousResponse;
 
-const handleSubmit = async (e) => {
-  e.preventDefault();
-  try {
-    setSaving(true); // começa loading do envio
-    const pageId = localStorage.getItem("notionPageId");
-    await fetch("/.netlify/functions/updateGuest", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ ...formData, pageId }),
-    });
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      setSaving(true);
+      const pageId = localStorage.getItem("notionPageId");
+      await fetch("/.netlify/functions/updateGuest", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...formData, pageId }),
+      });
 
-    setShowSuccess(true);
+      setShowSuccess(true);
 
-    setTimeout(() => {
-      setShowSuccess(false);
-      navigate("/responseReport");
-    }, 3000);
-  } catch (error) {
-    console.error("Erro ao atualizar:", error);
-    alert("Erro ao atualizar.");
-  } finally {
-    setSaving(false); // termina loading do envio
-  }
-};
-
-
+      setTimeout(() => {
+        setShowSuccess(false);
+        navigate("/responseReport");
+      }, 3000);
+    } catch (error) {
+      console.error("Erro ao atualizar:", error);
+      alert("Erro ao atualizar.");
+    } finally {
+      setSaving(false);
+    }
+  };
 
   if (loading)
     return (
@@ -169,23 +169,22 @@ const handleSubmit = async (e) => {
         <div className="loading loading-infinity loading-xl text-[#614183]"></div>
       </div>
     );
-    if (saving)
-      return (
-        <div className="relative w-full flex flex-col items-center justify-center h-[90vh] bg-Presenca">
-          <img
-            src={assets.flores}
-            alt="decoração esquerda"
-            className="absolute top-0 left-0 z-10 w-[25vw] md:w-[15vw] lg:w-[8vw] -translate-x-1/6 -translate-y-1/5 rotate-180"
-          />
-          <img
-            src={assets.flores}
-            alt="decoração direita"
-            className="absolute top-0 right-0 z-10 w-[25vw] md:w-[15vw] lg:w-[8vw] translate-x-1/6 -translate-y-1/5 rotate-[270deg]"
-          />
-          <div className="loading loading-infinity loading-xl text-[#614183]"></div>
-        </div>
-      );
-
+  if (saving)
+    return (
+      <div className="relative w-full flex flex-col items-center justify-center h-[90vh] bg-Presenca">
+        <img
+          src={assets.flores}
+          alt="decoração esquerda"
+          className="absolute top-0 left-0 z-10 w-[25vw] md:w-[15vw] lg:w-[8vw] -translate-x-1/6 -translate-y-1/5 rotate-180"
+        />
+        <img
+          src={assets.flores}
+          alt="decoração direita"
+          className="absolute top-0 right-0 z-10 w-[25vw] md:w-[15vw] lg:w-[8vw] translate-x-1/6 -translate-y-1/5 rotate-[270deg]"
+        />
+        <div className="loading loading-infinity loading-xl text-[#614183]"></div>
+      </div>
+    );
 
   return (
     <div className="relative w-full flex flex-col items-center justify-center min-h-[90vh] bg-Presenca py-8 px-4">
@@ -206,8 +205,8 @@ const handleSubmit = async (e) => {
         show={showSuccess}
         message={
           isFirstResponse
-            ? "¡Respuesta registrada con éxito!"
-            : "¡Fue actualizado con suceso!"
+            ? t("confirmation.form.successFirst")
+            : t("confirmation.form.successUpdate")
         }
         onClose={() => setShowSuccess(false)}
       />
@@ -218,16 +217,22 @@ const handleSubmit = async (e) => {
         className="bg-white/80 backdrop-blur-md rounded-2xl shadow-md w-full max-w-xl p-6 space-y-4"
       >
         <h2 className=" text-center text-[#614183]">
-          {isFirstResponse ? "Registrar Respuesta" : "Modificar Respuesta"}
+          {isFirstResponse
+            ? t("confirmation.form.registerResponse")
+            : t("confirmation.form.modifyResponse")}
         </h2>
 
         <div>
-          <p className="text-sm font-light text-[#614183]">Nombre</p>
+          <p className="text-sm font-light text-[#614183]">
+            {t("confirmation.form.name")}
+          </p>
           <p className="font-medium">{formData.nome}</p>
         </div>
 
         <div>
-          <p className="text-sm font-light text-[#614183]">¿Vas a asistir?</p>
+          <p className="text-sm font-light text-[#614183]">
+            {t("confirmation.form.willAttend")}
+          </p>
           <div className="flex gap-4 mt-1">
             <label className="flex items-center gap-1">
               <input
@@ -238,7 +243,7 @@ const handleSubmit = async (e) => {
                 onChange={() => handleConfirmacaoChange("Vai")}
                 required
               />
-              <span className="font-medium">Sí</span>
+              <span className="font-medium">{t("confirmation.form.yes")}</span>
             </label>
             <label className="flex items-center gap-1">
               <input
@@ -248,13 +253,15 @@ const handleSubmit = async (e) => {
                 checked={formData.confirmacao === "Não Vai"}
                 onChange={() => handleConfirmacaoChange("Não Vai")}
               />
-              <span className="font-medium">No</span>
+              <span className="font-medium">{t("confirmation.form.no")}</span>
             </label>
           </div>
         </div>
 
         <div>
-          <p className="text-sm font-light text-[#614183]">Email</p>
+          <p className="text-sm font-light text-[#614183]">
+            {t("confirmation.form.email")}
+          </p>
           <input
             name="email"
             value={formData.email}
@@ -265,7 +272,9 @@ const handleSubmit = async (e) => {
         </div>
 
         <div>
-          <p className="text-sm font-light text-[#614183]">Teléfono</p>
+          <p className="text-sm font-light text-[#614183]">
+            {t("confirmation.form.phone")}
+          </p>
           <input
             name="phone"
             value={formData.phone}
@@ -278,7 +287,9 @@ const handleSubmit = async (e) => {
         {formData.acompanhantes.length > 0 && (
           <div>
             <p className="text-sm font-light text-[#614183]">
-              Mis Acompañantes: {formData.acompanhantes.length}
+              {t("confirmation.form.guests", {
+                count: formData.acompanhantes.length,
+              })}
             </p>
             <div className="space-y-1 mt-1">
               {[...formData.acompanhantes]
@@ -298,12 +309,14 @@ const handleSubmit = async (e) => {
         )}
 
         <div>
-          <p className="text-sm font-light text-[#614183]">Observaciones</p>
+          <p className="text-sm font-light text-[#614183]">
+            {t("confirmation.form.observations")}
+          </p>
           <input
             name="observacao"
             value={formData.observacao}
             onChange={handleChange}
-            placeholder="Observación"
+            placeholder={t("confirmation.form.noObservations")}
             className="w-full p-2 rounded border focus:outline-none focus:ring-2 focus:ring-[#614183]"
           />
         </div>
@@ -312,7 +325,9 @@ const handleSubmit = async (e) => {
           type="submit"
           className="w-full p-2 rounded border focus:outline-none focus:ring-2 focus:ring-[#614183]"
         >
-          {isFirstResponse ? "Registrar" : "Actualizar respuesta"}
+          {isFirstResponse
+            ? t("confirmation.form.register")
+            : t("confirmation.form.update")}
         </button>
       </form>
     </div>

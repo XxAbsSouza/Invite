@@ -1,0 +1,44 @@
+{
+  "confirmation": {
+    "title": "A sua confirmação é importante",
+    "description": "Por favor, confirme sua presença clicando no botão abaixo",
+    "button": "Confirmar",
+    "navigateTo": "/searchGuest",
+    "notFound": {
+      "title": "Sorry!",
+      "message": "Não conseguimos encontrar seu nome na lista de convidados.<br /> <br />Mas não se preocupe! Confira o convite que os noivos enviaram para o seu número de WhatsApp e verifique o nome exato(com os acentos ou não) e tente novamente.<br /> <br />Se o problema persistir, entre em contato com os noivos.",
+      "button": "Tentar novamente",
+      "navigateTo": "/searchGuest"
+    },
+    "search": {
+      "title": "Confirmar Presença",
+      "placeholder": "Digite o nome do seu convite",
+      "searchBtn": "Buscar",
+      "errorEmpty": "Por favor, digite seu nome antes de pesquisar."
+    },
+    "form": {
+      "registerResponse": "Registrar Resposta",
+      "modifyResponse": "Modificar Resposta",
+      "name": "Nome",
+      "willAttend": "Vai comparecer?",
+      "yes": "Sim",
+      "no": "Não",
+      "email": "Email",
+      "phone": "Telefone",
+      "guests": "Meus Acompanhantes: {{count}}",
+      "observations": "Observações",
+      "noObservations": "Nenhuma observação registrada.",
+      "register": "Registrar",
+      "update": "Atualizar resposta",
+      "successFirst": "Resposta registrada com sucesso!",
+      "successUpdate": "Atualização realizada com sucesso!"
+    },
+    "responseReport": {
+      "confirmationDetails": "Detalhes da Confirmação",
+      "confirmedYes": "Sua presença está confirmada!",
+      "confirmedNo": "Você confirmou que NÃO VAI!",
+      "modifyBtn": "Modificar resposta",
+      "backBtn": "← Voltar ao início"
+    }
+  }
+}

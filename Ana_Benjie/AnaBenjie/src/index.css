@@ -50,3 +50,6 @@ body {
   /* background-color: #fff;    cor de fundo se quiser complementar */
 }
 
+.emoji {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI Emoji", "Noto Color Emoji", "Apple Color Emoji", sans-serif;
+}

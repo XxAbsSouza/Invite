@@ -1,10 +1,15 @@
+import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { assets } from "../../assets/assets";
 import { CiMenuFries, CiHeart } from "react-icons/ci";
 import { GiClothes } from "react-icons/gi";
 import { FiX, FiMapPin, FiClock, FiCheckCircle } from "react-icons/fi";
 
+import { LanguageSwitcher } from "../LanguageSwitcher.jsx";
+import { useTranslation } from "react-i18next";
+
 const Navbar = () => {
+  const { t } = useTranslation("navbar");
   const navigate = useNavigate();
 
   const closeMenu = () => {
@@ -37,149 +42,132 @@ const Navbar = () => {
       <div className="drawer drawer-end">
         <input id="drawer-toggle" type="checkbox" className="drawer-toggle" />
 
-        {/* Botão hamburguer (minimalista, sem círculo) */}
+        {/* Botão hamburguer */}
         <div className="drawer-content">
           <label
             htmlFor="drawer-toggle"
             className="cursor-pointer inline-flex items-center py-2 hover:opacity-80 transition"
-            aria-label="Abrir menu"
+            aria-label={t("openMenu")}
           >
-            <CiMenuFries className="h-7 w-7" style={{ color: "#b2af80" }} />
+            <CiMenuFries
+              className="h-7 w-7 text-gray-800"
+              style={{ color: "#b2af80" }}
+            />
           </label>
         </div>
 
         {/* Menu lateral */}
         <div className="drawer-side z-50">
-          <label htmlFor="drawer-toggle" className="drawer-overlay"></label>
-          <div
-            className="flex flex-col w-72 min-h-full"
-            style={{
-              backgroundColor: "rgba(163, 159, 95, 0.8)", // #848158 com transparência
-              backdropFilter: "blur(10px)",
-              WebkitBackdropFilter: "blur(10px)",
-            }}
-          >
-            {/* Topo com logo e botão X */}
-            <div className="flex items-center justify-between p-4 border-b border-black/10">
-              <img
-                src={assets.nossos_nomes_hero}
-                alt="Nossos nomes"
-                className="w-[48vw] md:w-[25vw] lg:w-[20vw] xl:w-[12vw]"
-              />
+          <label
+            htmlFor="drawer-toggle"
+            className="drawer-overlay bg-black/40 backdrop-blur-sm transition-opacity"
+          ></label>
+
+          <div className="flex flex-col w-72 min-h-full bg-white/95 backdrop-blur-md shadow-xl transition-transform duration-300">
+            {/* Topo */}
+            <div className="flex items-center justify-between p-5 border-b border-gray-300">
+              <h3>Ana & Benjie</h3>
               <label
                 htmlFor="drawer-toggle"
-                className="btn btn-ghost btn-circle hover:bg-black/10 transition"
-                aria-label="Fechar menu"
+                className="cursor-pointer p-2 rounded-full hover:bg-gray-200 transition-colors"
+                aria-label={t("closeMenu")}
               >
-                <FiX className="h-6 w-6" style={{ color: "#efedcd" }} />
+                <FiX className="h-6 w-6 text-gray-700" />
               </label>
             </div>
 
-            {/* Lista de links */}
-            <ul
-              className="menu p-4 flex-1 text-lg"
-              style={{ color: "#efedcd" }}
-            >
+            {/* Idioma */}
+            <div className="p-5 border-b border-gray-200">
+              <span className="text-xs font-semibold uppercase tracking-widest text-gray-500 mb-2 block">
+                {t("language")}
+              </span>
+              <LanguageSwitcher onChangeLanguage={closeMenu} />
+            </div>
+
+            {/* Links */}
+            <ul className="flex-1 flex flex-col p-5 gap-3 text-gray-800">
               <li>
                 <button
                   onClick={goHome}
-                  className="flex items-center gap-3 hover:text-white transition-all"
-                  style={{ color: "#efedcd" }}
+                  className="flex items-center gap-3 py-2 px-3 rounded-lg hover:bg-gray-100 transition-colors font-medium"
                 >
-                  <CiHeart /> Início
+                  <CiHeart /> {t("home")}
                 </button>
               </li>
 
-              <li className="mt-6">
-                {/* Seção Lugar sem ser clicável */}
-                <span
-                  className="text-sm font-light uppercase tracking-wide mb-1 block"
-                  style={{ color: "rgba(112, 109, 66, 0.8)" }}
-                >
-                  Lugar
+              <li className="mt-3">
+                <span className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-1 block">
+                  {t("place")}
                 </span>
-                <ul>
+                <ul className="flex flex-col gap-2">
                   <li>
                     <button
                       onClick={() => scrollToTitle("Lugar")}
-                      className="flex items-center gap-3 hover:text-white transition-all"
-                      style={{ color: "#efedcd" }}
+                      className="flex items-center gap-3 py-2 px-3 rounded-lg hover:bg-gray-100 transition-colors"
                     >
-                      <FiMapPin /> Lugar
+                      <FiMapPin /> {t("place")}
                     </button>
                   </li>
                   <li>
                     <Link
                       to="/comochegar"
                       onClick={closeMenu}
-                      className="flex items-center gap-3 hover:text-white transition-all"
-                      style={{ color: "#efedcd" }}
+                      className="flex items-center gap-3 py-2 px-3 rounded-lg hover:bg-gray-100 transition-colors"
                     >
-                      <FiMapPin /> Como Chegar
+                      <FiMapPin /> {t("howToGet")}
                     </Link>
                   </li>
                 </ul>
               </li>
 
-              <li className="mt-6">
+              <li className="mt-3">
                 <button
                   onClick={() => scrollToTitle("Hora")}
-                  className="flex items-center gap-3 hover:text-white transition-all"
-                  style={{ color: "#efedcd" }}
+                  className="flex items-center gap-3 py-2 px-3 rounded-lg hover:bg-gray-100 transition-colors"
                 >
-                  <FiClock /> Hora
+                  <FiClock /> {t("time")}
                 </button>
               </li>
 
-              <li className="mt-6">
-                {/* Seção Vestimenta sem ser clicável */}
-                <span
-                  className="text-sm font-light uppercase tracking-wide mb-1 block"
-                  style={{ color: "rgba(112, 109, 66, 0.8)" }}
-                >
-                  Vestimenta
+              <li className="mt-3">
+                <span className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-1 block">
+                  {t("dress")}
                 </span>
-                <ul>
+                <ul className="flex flex-col gap-2">
                   <li>
                     <button
                       onClick={() => scrollToTitle("Vestimenta")}
-                      className="flex items-center gap-3 hover:text-white transition-all"
-                      style={{ color: "#efedcd" }}
+                      className="flex items-center gap-3 py-2 px-3 rounded-lg hover:bg-gray-100 transition-colors"
                     >
-                      <GiClothes /> Vestimenta
+                      <GiClothes /> {t("dress")}
                     </button>
                   </li>
                   <li>
                     <Link
                       to="/dicas"
                       onClick={closeMenu}
-                      className="flex items-center gap-3 hover:text-white transition-all"
-                      style={{ color: "#efedcd" }}
+                      className="flex items-center gap-3 py-2 px-3 rounded-lg hover:bg-gray-100 transition-colors"
                     >
-                      <CiHeart /> Tips
+                      <CiHeart /> {t("tips")}
                     </Link>
                   </li>
                 </ul>
               </li>
 
-              <li className="mt-8">
+              <li className="mt-6">
                 <Link
                   to="/searchGuest"
                   onClick={closeMenu}
-                  className="flex items-center gap-3 font-semibold hover:underline hover:text-white transition"
-                  style={{ color: "#ffd4d2" }}
+                  className="flex items-center gap-3 py-2 px-3 rounded-lg font-semibold bg-pink-100 hover:bg-pink-200 transition-colors"
                 >
-                  <FiCheckCircle /> Confirmação
+                  <FiCheckCircle /> {t("confirmation")}
                 </Link>
               </li>
             </ul>
 
             {/* Rodapé */}
-            <div
-              className="p-4 border-t border-black/10 text-sm text-center select-none"
-              style={{ color: "rgba(178, 175, 128, 0.7)" }}
-            >
-              © {new Date().getFullYear()} Nosso Casamento
+            <div className="p-5 text-sm text-center text-gray-500 select-none">
+              © {new Date().getFullYear()} {t("footer")}
             </div>
           </div>
         </div>

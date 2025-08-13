@@ -1,11 +1,14 @@
-// pages/Pagina1/Citacao.jsx
 import React from "react";
 import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
-import { assets, citacoes } from "../../assets/assets";
+import { assets } from "../../assets/assets";
+import { useTranslation } from "react-i18next";
 import "./Citacao.css";
 
 const Citacao = () => {
+  const { t } = useTranslation("citacoes");
+  const citacoes = t("citacoes", { returnObjects: true });
+
   // Filtra só as citações da página 1
   const citacoesPagina1 = citacoes.filter((c) => c.pagina === 1);
 
@@ -21,7 +24,7 @@ const Citacao = () => {
         <div key={index} className="bg p-5 flex flex-col items-start">
           {/* Bloco do h3 e p alinhados à direita */}
           <div className="flex flex-col items-end text-center md:self-center md:items-center mt-4">
-            <h2 className=" leading-[0.9] text-center">
+            <h2 className="leading-[0.9] text-center">
               - El Amor lo conquista todo
             </h2>
             <p className="mt-3 self-end text-sm italic mb-7">

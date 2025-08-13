@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { assets } from "../assets/assets";
+import { useTranslation } from "react-i18next";
 
 const ResponseReport = () => {
+  const { t } = useTranslation("confirmation");
   const navigate = useNavigate();
   const [guestData, setGuestData] = useState(null);
   const [loading, setLoading] = useState(true);
-
 
   useEffect(() => {
     const fetchGuest = async () => {
@@ -55,6 +56,7 @@ const ResponseReport = () => {
     return (
       <div className="flex justify-center items-center h-[90vh]">
         <p className="text-center text-gray-600">
+          {/* Texto fixo, poderia ser traduzido se quiser */}
           Não foi possível carregar os dados.
         </p>
       </div>
@@ -91,7 +93,9 @@ const ResponseReport = () => {
               d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
             />
           </svg>
-          <span className="font-medium">¡Su presencia está confirmada!</span>
+          <span className="font-medium">
+            {t("confirmation.responseReport.confirmedYes")}
+          </span>
         </div>
       )}
 
@@ -109,45 +113,47 @@ const ResponseReport = () => {
               d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
             />
           </svg>
-          <span className="font-medium">¡Confirmaste que NO IRÁS!</span>
+          <span className="font-medium">{t("confirmation.responseReport.confirmedNo")}</span>
         </div>
       )}
 
       {/* Card principal */}
       <div className="bg-white/80 backdrop-blur-md rounded-2xl shadow-md w-full max-w-xl p-6 space-y-4">
         <h2 className=" text-center text-[#614183]">
-          Detalles de la Confirmación
+          {t("confirmation.responseReport.confirmationDetails")}
         </h2>
 
         <div>
-          <p className="text-sm font-light text-[#614183]">Nombre</p>
+          <p className="text-sm font-light text-[#614183]">{t("confirmation.form.name")}</p>
           <p className="font-medium">
             {convidado.Nome?.title?.[0]?.plain_text}
           </p>
         </div>
 
         <div>
-          <p className="text-sm font-light text-[#614183]">Email</p>
+          <p className="text-sm font-light text-[#614183]">{t("confirmation.form.email")}</p>
           <p className="font-medium">{convidado.Email?.email}</p>
         </div>
 
         <div>
-          <p className="text-sm font-light text-[#614183]">Teléfono</p>
+          <p className="text-sm font-light text-[#614183]">{t("confirmation.form.phone")}</p>
           <p className="font-medium">{convidado.Phone?.phone_number}</p>
         </div>
 
         <div>
-          <p className="text-sm font-light text-[#614183]">¿Vas a asistir?</p>
+          <p className="text-sm font-light text-[#614183]">
+            {t("confirmation.form.willAttend")}
+          </p>
           <p className="font-medium flex items-center space-x-2">
             {convidado.Confirmação?.status?.name === "Vai" ? (
               <>
                 <span className="text-green-600">✔</span>
-                <span>Sí</span>
+                <span>{t("confirmation.form.yes")}</span>
               </>
             ) : convidado.Confirmação?.status?.name === "Não Vai" ? (
               <>
                 <span className="text-red-600">✘</span>
-                <span>No</span>
+                <span>{t("confirmation.form.no")}</span>
               </>
             ) : (
               <span className="text-gray-500">Sin respuesta</span>
@@ -155,31 +161,41 @@ const ResponseReport = () => {
           </p>
         </div>
 
-        <div className="space-y-1">
-          {acompanhantes
-            .slice()
-            .sort((a, b) => {
-              const tipoA =
-                a.properties?.Tipo?.select?.name?.toLowerCase() || "";
-              const tipoB =
-                b.properties?.Tipo?.select?.name?.toLowerCase() || "";
+        {/* Lista de acompanhantes (apenas se houver) */}
+        {acompanhantes.length > 0 && (
+          <div>
+            <p className="text-sm font-light text-[#614183]">
+              {t("confirmation.form.guests", { count: acompanhantes.length })}
+            </p>
+            <div className="space-y-1 mt-1">
+              {acompanhantes
+                .slice()
+                .sort((a, b) => {
+                  const tipoA =
+                    a.properties?.Tipo?.select?.name?.toLowerCase() || "";
+                  const tipoB =
+                    b.properties?.Tipo?.select?.name?.toLowerCase() || "";
 
-              if (tipoA === tipoB) return 0;
-              return tipoA === "adulto" ? -1 : 1;
-            })
-            .map((a) => (
-              <p key={a.id} className="font-medium">
-                <span className="text-[#614183] text-sm">●</span>{" "}
-                {a.properties?.Nome?.title?.[0]?.plain_text}
-              </p>
-            ))}
-        </div>
+                  if (tipoA === tipoB) return 0;
+                  return tipoA === "adulto" ? -1 : 1;
+                })
+                .map((a) => (
+                  <p key={a.id} className="font-medium">
+                    <span className="text-[#614183] text-sm">●</span>{" "}
+                    {a.properties?.Nome?.title?.[0]?.plain_text}
+                  </p>
+                ))}
+            </div>
+          </div>
+        )}
 
         <div>
-          <p className="text-sm font-light text-[#614183]">Observaciones</p>
+          <p className="text-sm font-light text-[#614183]">
+            {t("confirmation.form.observations")}
+          </p>
           {convidado.Observacao?.rich_text?.length === 0 ? (
             <p className="font-medium text-gray-500">
-              Ninguna observación registrada.
+              {t("confirmation.form.noObservations")}
             </p>
           ) : (
             <p className="font-medium">
@@ -192,14 +208,14 @@ const ResponseReport = () => {
           onClick={() => navigate("/formsConfirmation")}
           className="btn btn-style btn-outline transition-colors duration-300 w-full mt-2"
         >
-          Modificar respuesta
+          {t("confirmation.responseReport.modifyBtn")}
         </button>
         <button
           type="button"
           onClick={() => navigate("/")}
           className="btn btn-outline w-full mt-2"
         >
-          ← Volver al inicio
+          {t("confirmation.responseReport.backBtn")}
         </button>
       </div>
     </div>

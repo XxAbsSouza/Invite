@@ -1,0 +1,7 @@
+{
+  "placeholder_origin": "Escribe el punto de partida",
+  "confirm_open_map": "¿Quieres abrir el mapa en Google Maps?",
+  "error_select_place": "Por favor, selecciona un lugar antes de trazar la ruta.",
+  "btn_trace_route": "Trazar ruta",
+  "marker_label": "Lugar de la boda"
+}

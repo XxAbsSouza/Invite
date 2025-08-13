@@ -1,0 +1,31 @@
+{
+  "hero_line": "Com muito amor te convidamos para o início da nossa eternidade juntos!",
+  "month": "Novembro",
+  "days": [
+    { "alt": "Dia dezoito" },
+    { "alt": "Dia dezenove" },
+    { "alt": "Dia vinte — o grande dia" },
+    { "alt": "Dia vinte e um" },
+    { "alt": "Dia vinte e dois" }
+  ],
+  "sections": [
+    {
+      "title": "Lugar",
+      "description": "**Sítio: Monte das Oliveiras**, <br /> Estrada Municipal José Floriano Domingues, Guareí - SP",
+      "hasBtn": true,
+      "buttonText": "Como chegar",
+      "navigateTo": "/comochegar"
+    },
+    {
+      "title": "Hora",
+      "description": "Te esperamos às <span>**14h00**</span> e agradecemos a sua pontualidade."
+    },
+    {
+      "title": "Vestimenta",
+      "description": "**Esporte fino**, lembre-se de que a celebração será em um campo ao ar livre.",
+      "hasBtn": true,
+      "buttonText": "Ver Dicas",
+      "navigateTo": "/dicas"
+    }
+  ]
+}

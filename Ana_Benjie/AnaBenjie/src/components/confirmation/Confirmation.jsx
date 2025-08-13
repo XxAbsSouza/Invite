@@ -1,33 +1,27 @@
-// pages/Pagina2/Confirmation.jsx
 import React from "react";
-import { assets, infosGeneralesData } from "../../assets/assets";
-import ReactMarkdown from "react-markdown";
+import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
+import ReactMarkdown from "react-markdown";
 
 const Confirmation = () => {
+  const { t } = useTranslation("confirmation");
   const navigate = useNavigate();
-
-  const infosPagina2 = infosGeneralesData.filter((info) => info.pagina === 2);
 
   return (
     <div className="my-10 flex flex-col items-center justify-center gap-6 w-[90vw] text-center">
-      <h2 className="text-[#b2af80] leading-[1.1] text-center break-words">
-        Tú confirmación es importante
+      <h2 className="text-[#b2af80] leading-[0.9] text-center">
+        {t("confirmation.title")}
       </h2>
 
-      {infosPagina2.map((info, index) => (
-        <div key={index} className="flex flex-col items-center">
-          <ReactMarkdown>{info.description}</ReactMarkdown>
-          {info.hasBtn && (
-            <button
-              className="btn btn-style btn-outline transition-colors duration-300 mt-4 w-full md:max-w-[20vw]"
-              onClick={() => navigate(info.navigateTo)}
-            >
-              {info.buttonText}
-            </button>
-          )}
-        </div>
-      ))}
+      <div className="flex flex-col items-center">
+        <ReactMarkdown>{t("confirmation.description")}</ReactMarkdown>
+        <button
+          className="btn btn-style btn-outline transition-colors duration-300 mt-6 w-full md:max-w-[20vw]"
+          onClick={() => navigate(t("confirmation.navigateTo"))}
+        >
+          {t("confirmation.button")}
+        </button>
+      </div>
     </div>
   );
 };

@@ -1,0 +1,31 @@
+{
+  "hero_line": "¡Con mucho amor te invitamos al inicio de nuestra eternidad juntos!",
+  "month": "Noviembre",
+  "days": [
+    { "alt": "Día dieciocho" },
+    { "alt": "Día diecinueve" },
+    { "alt": "Día veinte — el gran día" },
+    { "alt": "Día veintiuno" },
+    { "alt": "Día veintidós" }
+  ],
+  "sections": [
+    {
+      "title": "Lugar",
+      "description": "**Campo: Monte de los Olivos**, <br /> Estrada Municipal José Floriano Domingues, Guareí - SP",
+      "hasBtn": true,
+      "buttonText": "Cómo llegar",
+      "navigateTo": "/comochegar"
+    },
+    {
+      "title": "Hora",
+      "description": "Te esperamos a las <span>**2:00 p.m.**</span> y agradecemos tu puntualidad."
+    },
+    {
+      "title": "Vestimenta",
+      "description": "**Casual elegante**, toma en cuenta de que la celebración será en un campo al aire libre.",
+      "hasBtn": true,
+      "buttonText": "Ver Tips",
+      "navigateTo": "/dicas"
+    }
+  ]
+}

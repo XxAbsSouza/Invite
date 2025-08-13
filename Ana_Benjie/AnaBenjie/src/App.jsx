@@ -24,7 +24,7 @@ import SearchGuest from "./components/confirmation/SearchGuest";
 import MessageSorry from "./components/confirmation/MessageSorry";
 import ResponseReport from "./pages/ResponseReport";
 
-
+import "./i18n";
 import "./App.css";
 
 
@@ -51,8 +51,8 @@ function App() {
           path="/"
           element={
             <div className="w-full overflow-hidden text-xl flex flex-col items-center">
-              <Hero  />
-              <InfoGeneral  />
+              <Hero />
+              <InfoGeneral />
               <Citacao />
               <Countdown />
               <Gallery />
